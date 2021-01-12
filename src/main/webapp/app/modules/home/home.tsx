@@ -138,12 +138,10 @@ export const Home = () => {
               </div>
             </div>
             <div className="usa-card__container mt-3">
-              <br />
               <header className="usa-card__header">
                 <h3 className="usa-card__heading">What will I need to provide?</h3>
               </header>
-              <br />
-              <header className="usa-card__header">
+              <header className="usa-card__header mt-3">
                 <h5 className="usa-card__heading">Contact information</h5>
               </header>
               <div className="usa-card__body">
@@ -152,8 +150,7 @@ export const Home = () => {
                   <li>A second point of contact (optional)</li>
                 </ul>
               </div>
-              <br />
-              <header className="usa-card__header">
+              <header className="usa-card__header  mt-3">
                 <h5 className="usa-card__heading">Details about what happened</h5>
               </header>
               <div className="usa-card__body">
@@ -166,8 +163,7 @@ export const Home = () => {
                 </ul>
               </div>
             </div>
-            <div className="usa-card__container mt-2">
-              <br />
+            <div className="usa-card__container mt-3">
               <header className="usa-card__header">
                 <h3 className="usa-card__heading">How long will it take?</h3>
               </header>

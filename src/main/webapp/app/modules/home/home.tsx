@@ -1,6 +1,9 @@
 import './home.scss';
-import React from 'react';
+import React, { useCallback } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 export const Home = () => {
+  const history = useHistory();
+  const handleFheoRoute = useCallback(() => history.push('/fheo'), [history]);
   return (
     <div id="home">
       <ul className="usa-card-group" style={{ paddingLeft: '0px' }}>
@@ -176,7 +179,9 @@ export const Home = () => {
             </div>
 
             <div className="usa-card__footer mt-2">
-              <button className="usa-button">Start my complaint</button>
+              <button className="usa-button"
+                onClick={handleFheoRoute}>
+                Start my complaint</button>
             </div>
           </div>
         </li>

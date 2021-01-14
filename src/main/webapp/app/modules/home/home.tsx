@@ -1,6 +1,9 @@
 import './home.scss';
-import React from 'react';
+import React, { useCallback } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 export const Home = () => {
+  const history = useHistory();
+  const handleFheoRoute = useCallback(() => history.push('/fheo'), [history]);
   return (
     <div id="home">
       <ul className="usa-card-group" style={{ paddingLeft: '0px' }}>
@@ -138,12 +141,10 @@ export const Home = () => {
               </div>
             </div>
             <div className="usa-card__container mt-3">
-              <br />
               <header className="usa-card__header">
                 <h3 className="usa-card__heading">What will I need to provide?</h3>
               </header>
-              <br />
-              <header className="usa-card__header">
+              <header className="usa-card__header mt-3">
                 <h5 className="usa-card__heading">Contact information</h5>
               </header>
               <div className="usa-card__body">
@@ -152,8 +153,7 @@ export const Home = () => {
                   <li>A second point of contact (optional)</li>
                 </ul>
               </div>
-              <br />
-              <header className="usa-card__header">
+              <header className="usa-card__header  mt-3">
                 <h5 className="usa-card__heading">Details about what happened</h5>
               </header>
               <div className="usa-card__body">
@@ -166,8 +166,7 @@ export const Home = () => {
                 </ul>
               </div>
             </div>
-            <div className="usa-card__container mt-2">
-              <br />
+            <div className="usa-card__container mt-3">
               <header className="usa-card__header">
                 <h3 className="usa-card__heading">How long will it take?</h3>
               </header>
@@ -180,7 +179,9 @@ export const Home = () => {
             </div>
 
             <div className="usa-card__footer mt-2">
-              <button className="usa-button">Start my complaint</button>
+              <button className="usa-button"
+                onClick={handleFheoRoute}>
+                Start my complaint</button>
             </div>
           </div>
         </li>

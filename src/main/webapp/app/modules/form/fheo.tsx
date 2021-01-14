@@ -8,7 +8,14 @@ export const Fheo = () => {
     return (
         <div className="card">
             <Form
-                src="https://dev-portal.fs.gsa.gov/dev/hud903"
+                src="https://dev-portal.fs.gsa.gov/review/hud903"
+                options={{
+                    i18n: {en: {
+                        'next': 'Continue',
+                        'previous': 'Go Back',
+                        'submit': 'Submit my Complaint'
+                        }}
+                }}
             />
         </div>
     );

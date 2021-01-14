@@ -22,7 +22,7 @@ const Header = () => {
                 <img className="usa-banner__header-flag" src={usFlag} alt="U.S. flag" />
               </div>
               <div className="grid-col-fill tablet:grid-col-auto">
-                <p className="usa-banner__header-text" >An official website of the United States Government</p>
+                <p className="usa-banner__header-text" >An official website of the United States government</p>
                 <p className="usa-banner__header-action" aria-hidden="true">Here’s how you know</p>
               </div>
               <button className="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner">

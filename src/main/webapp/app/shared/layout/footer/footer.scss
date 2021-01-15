@@ -1,3 +1,13 @@
 .footer {
   background-color: #f0f0f0;
 }
+@media (min-width: 64em) {
+  .footer-background {
+    width: 87.5%;
+  }
+}
+@media (max-width: 63.99em) {
+  .footer-background {
+    width: 100%;
+  }
+}

@@ -1,5 +1,5 @@
 import './footer.scss';
-import React from 'react';
+import React, { useState } from 'react';
 /* eslint @typescript-eslint/no-var-requires: "off" */
 const faasLogo = require('../../../../content/images/faas-logo.png');
 const Footer = () => (

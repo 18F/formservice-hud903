@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 /* eslint @typescript-eslint/no-var-requires: "off" */
 const faasLogo = require('../../../../content/images/faas-logo.png');
 const Footer = () => (
-  <footer className="usa-footer">
-    <div className="usa-footer__secondary-section">
+  <footer className="usa-footer" >
+    <div className="usa-footer__secondary-section footer">
       <div className="grid-container">
         <div className="grid-row grid-gap">
           <div className="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2">

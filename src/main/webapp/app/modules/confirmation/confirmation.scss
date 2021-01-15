@@ -1,0 +1,19 @@
+/* ==========================================================================
+confirmation page styles
+========================================================================== */
+
+@media (min-width: 64em) {
+  .confirmation {
+    width: 88%;
+  }
+}
+@media (max-width: 63.99em) {
+  .confirmation {
+    width: 100%;
+  }
+}
+
+a {
+  color: #005ea2;
+  font-weight: bold;
+}

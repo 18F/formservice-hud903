@@ -16,8 +16,9 @@ export const Fheo = () => {
             active={loader}
             spinner={<BounceLoader />}
             text='Loading form...'
+            className="card"
         >
-            <div className="card">
+            <div className="footer-background">
                 <Form
                     src="https://dev-portal.fs.gsa.gov/review/hud903"
                     onSubmit={handleConfirmationRoute}

@@ -16,6 +16,7 @@ export const Fheo = () => {
             active={loader}
             spinner={<BounceLoader />}
             text='Loading form...'
+            className="card"
         >
             <div className="card">
                 <Form

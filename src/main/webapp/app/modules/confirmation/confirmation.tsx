@@ -1,16 +1,11 @@
-import '../home/home.scss';
-import React, { useCallback } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { Form } from 'react-formio';
-import uswds from '@formio/uswds';
-import { Formio } from 'formiojs';
-
+import './confirmation.scss';
+import React from 'react';
 /* eslint @typescript-eslint/no-var-requires: "off" */
 const iconForwardArrow = require('../../../content/images/arrow_forward.svg');
 
 export const Confirmation = () => {
     return (
-      <div id="confirmation">
+      <div className="confirmation">
         <ul className="usa-card-group" style={{ paddingLeft: '0px' }}>
           <li className="usa--card">
             <div className="usa-card__container mt-4">

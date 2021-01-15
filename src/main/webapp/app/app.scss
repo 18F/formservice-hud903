@@ -326,14 +326,19 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
   border-radius: 0.25rem;
   padding: 20px;
 }
-
 @media (min-width: 64em) {
   .card {
+    width: 87.5%;
+  }
+  .comp-container {
     width: 87.5%;
   }
 }
 @media (max-width: 63.99em) {
   .card {
+    width: 100%;
+  }
+  .comp-container {
     width: 100%;
   }
 }

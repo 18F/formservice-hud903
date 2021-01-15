@@ -5,7 +5,7 @@ const iconForwardArrow = require('../../../content/images/arrow_forward.svg');
 
 export const Confirmation = () => {
     return (
-      <div className="confirmation">
+      <div className="comp-container">
         <ul className="usa-card-group" style={{ paddingLeft: '0px' }}>
           <li className="usa--card">
             <div className="usa-card__container mt-4">

@@ -1,0 +1,28 @@
+$header-color: #fff;
+$header-color-secondary: #bbb;
+$header-color-hover: darken($header-color, 20%);
+
+.hud-logo {
+  display: inline-block;
+  width: 50%;
+  height: 500px;
+  margin-left: 22rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  background: url('../../../content/images/hud-logo.png') no-repeat center top;
+  background-size: contain;
+}
+
+.loading-bar {
+  height: 3px;
+  background-color: #009cd8;
+  position: absolute;
+  top: 0px;
+  z-index: 1031;
+}
+
+@media (min-width: 64em) {
+  .header-banner {
+    width: 87.5%;
+  }
+}

@@ -14,7 +14,6 @@ function App() {
       <ToastContainer position={toast.POSITION.TOP_LEFT} className="toastify-container" toastClassName="toastify-toast" />
       <Header />
       <main className="main-content background pt-3 pb-3" aria-label="Content">
-        <div>
           <div className="grid-container">
             <div className="grid-row">
               <div className="grid-col-12">
@@ -22,7 +21,6 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
       </main>
       <Footer />
     </div>

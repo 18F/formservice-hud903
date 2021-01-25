@@ -1,4 +1,3 @@
-import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './modules/home/home';
 import PageNotFound from './shared/error/page-not-found';

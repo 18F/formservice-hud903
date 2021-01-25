@@ -1,6 +1,6 @@
 import './home.scss';
-import React, { useCallback } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 export const Home = () => {
   const history = useHistory();
   const handleFheoRoute = useCallback(() => history.push('/fheo'), [history]);

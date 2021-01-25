@@ -1,0 +1,564 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The App component renders as expected 1`] = `
+<div
+  className="app-container"
+>
+  <div
+    className="Toastify"
+  />
+  <div
+    style={
+      Object {
+        "background": "#ffffff",
+      }
+    }
+  >
+    <section
+      aria-label="Official government website"
+      className="usa-banner"
+    >
+      <div
+        className="usa-accordion"
+      >
+        <header
+          className="usa-banner__header"
+        >
+          <div
+            className="usa-banner__inner"
+          >
+            <div
+              className="grid-col-auto"
+            >
+              <img
+                alt="U.S. flag"
+                className="usa-banner__header-flag"
+                src="us_flag_small.png"
+              />
+            </div>
+            <div
+              className="grid-col-fill tablet:grid-col-auto"
+            >
+              <p
+                className="usa-banner__header-text"
+              >
+                An official website of the United States Government
+              </p>
+              <p
+                aria-hidden="true"
+                className="usa-banner__header-action"
+              >
+                Here’s how you know
+              </p>
+            </div>
+            <button
+              aria-controls="gov-banner"
+              aria-expanded="false"
+              className="usa-accordion__button usa-banner__button"
+            >
+              <span
+                className="usa-banner__button-text"
+              >
+                Here’s how you know
+              </span>
+            </button>
+          </div>
+        </header>
+        <div
+          className="usa-banner__content usa-accordion__content"
+          hidden={true}
+          id="gov-banner"
+        >
+          <div
+            className="grid-row grid-gap-lg"
+          >
+            <div
+              className="usa-banner__guidance tablet:grid-col-6"
+            >
+              <img
+                alt="Dot gov"
+                className="usa-banner__icon usa-media-block__img"
+                src="icon-dot-gov.svg"
+              />
+              <div
+                className="usa-media-block__body"
+              >
+                <p>
+                  <strong>
+                    Official websites use .gov
+                  </strong>
+                  <br />
+                  A 
+                  <strong>
+                    .gov
+                  </strong>
+                   website belongs to an official government organization in the United States.
+                </p>
+              </div>
+            </div>
+            <div
+              className="usa-banner__guidance tablet:grid-col-6"
+            >
+              <img
+                alt="Https"
+                className="usa-banner__icon usa-media-block__img"
+                src="icon-https.svg"
+              />
+              <div
+                className="usa-media-block__body"
+              >
+                <p>
+                  <strong>
+                    Secure .gov websites use HTTPS
+                  </strong>
+                  <br />
+                  A 
+                  <strong>
+                    lock
+                  </strong>
+                   (
+                  <span />
+                  <img
+                    alt="A locked padlock"
+                    src="lock.png"
+                  />
+                  ) or 
+                  <strong>
+                    https://
+                  </strong>
+                   means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <header
+      className="usa-nav-container"
+      role="banner"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <div>
+          <img
+            alt="Home"
+            className="header-banner"
+            src="hud-logo.png"
+          />
+        </div>
+      </a>
+    </header>
+  </div>
+  <main
+    aria-label="Content"
+    className="main-content background pt-3 pb-3"
+  >
+    <div
+      className="grid-container"
+    >
+      <div
+        className="grid-row"
+      >
+        <div
+          className="grid-col-12"
+        >
+          <div
+            className="view-routes"
+          >
+            <div
+              id="home"
+            >
+              <ul
+                className="usa-card-group"
+                style={
+                  Object {
+                    "paddingLeft": "0px",
+                  }
+                }
+              >
+                <li
+                  className="usa--card"
+                >
+                  <div
+                    className="usa-card__container"
+                  >
+                    <header
+                      className="usa-card__header"
+                    >
+                      <h3
+                        className="usa-card__heading"
+                      >
+                        Should I fill out this form?
+                      </h3>
+                    </header>
+                    <div
+                      className="usa-card__body"
+                    >
+                      <p>
+                        You should complete this form if you experienced 
+                        <strong>
+                          housing discrimination 
+                        </strong>
+                        because of your: 
+                        <br />
+                        1) race; 2) color; 3) religion; 4) national origin; 5) sex; 6) disability; or 7) familial status.
+                        <br />
+                        <br />
+                        NOTE: These characteristics are known as 
+                        <strong>
+                          protected classes
+                        </strong>
+                         under federal law.
+                        <br />
+                      </p>
+                      <div
+                        className="usa-accordion"
+                      >
+                        <h2
+                          className="usa-accordion__heading"
+                        >
+                          <button
+                            aria-controls="a1"
+                            aria-expanded="false"
+                            className="usa-accordion__button"
+                          >
+                            What is housing discrimination?
+                          </button>
+                        </h2>
+                        <div
+                          className="usa-accordion__content usa-prose"
+                          id="a1"
+                        >
+                          <p>
+                            Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
+                          </p>
+                        </div>
+                        <h2
+                          className="usa-accordion__heading"
+                        >
+                          <button
+                            aria-controls="a2"
+                            aria-expanded="false"
+                            className="usa-accordion__button"
+                          >
+                            What are the protected classes?
+                          </button>
+                        </h2>
+                        <div
+                          className="usa-accordion__content usa-prose"
+                          id="a2"
+                        >
+                          <p>
+                            <strong>
+                              Race
+                            </strong>
+                            <br />
+                            Racial discrimination means being treated unfairly because you are:
+                          </p>
+                          <ul
+                            className="custom"
+                          >
+                            <li>
+                              White;
+                            </li>
+                            <li>
+                              Black or African American;
+                            </li>
+                            <li>
+                              Asian;
+                            </li>
+                            <li>
+                              American Indian or Alaska Native;
+                            </li>
+                            <li>
+                              Native Hawaiian or Other Pacific Islander; or
+                            </li>
+                            <li>
+                              a mixture of two or more of these groups.
+                            </li>
+                          </ul>
+                          <p>
+                            Racial discrimination also includes being treated unfairly because of personal characteristics associated with race or because you are married to (or associated with) a person of a specific race.
+                            <br />
+                            Example: A seller refused to sell you their home because you are Black.
+                          </p>
+                          <p>
+                            <strong>
+                              Color
+                            </strong>
+                            <br />
+                            Color discrimination means being treated unfairly because of your skin color. While race and color overlap, they are not the same. People of various races and ethnicities may experience discrimination because of their skin color. This type of discrimination may occur within the same race.
+                          </p>
+                          <p>
+                            <strong>
+                              Religion
+                            </strong>
+                            <br />
+                            Religious discrimination means being treated unfairly because of your religious beliefs. This can include both the practice and non-practice of a religion.
+                          </p>
+                          <p>
+                            <strong>
+                              Sex
+                            </strong>
+                            <br />
+                            Sex discrimination means being treated unfairly or differently because of your sex. This includes both harassment because of a person’s sex and sexual harassment.
+                          </p>
+                          <p>
+                            <strong>
+                              National Origin
+                            </strong>
+                            <br />
+                            National origin discrimination means being treated unfairly because you:
+                          </p>
+                          <ul
+                            className="custom"
+                          >
+                            <li>
+                              are from a specific country or part of the world;
+                            </li>
+                            <li>
+                              speak a certain language or have an accent when you speak;
+                            </li>
+                            <li>
+                              are of a certain ethnic background; or
+                            </li>
+                            <li>
+                              appear to be of a certain ethnic background (even if you are not).
+                            </li>
+                          </ul>
+                          <p>
+                            National origin discrimination may also include being treated unfairly because you are married to (or associated with) a person of a specific national origin.
+                          </p>
+                          <p>
+                            <strong>
+                              Familial Status
+                            </strong>
+                            <br />
+                            Familial status discrimination means being treated unfairly because:
+                          </p>
+                          <ul
+                            className="custom"
+                          >
+                            <li>
+                              your family includes at least one child under 18 years old;
+                            </li>
+                            <li>
+                              you are pregnant; or
+                            </li>
+                            <li>
+                              you are in the process of adopting a child.
+                            </li>
+                          </ul>
+                          <p>
+                            <strong>
+                              Disability
+                            </strong>
+                            <br />
+                            Disability discrimination means being treated unfairly because you:
+                          </p>
+                          <ul
+                            className="custom"
+                          >
+                            <li>
+                              have a physical or mental disability which substantially limits any major life activity;
+                            </li>
+                            <li>
+                              have a record of a physical or mental disability; or
+                            </li>
+                            <li>
+                              are viewed as having a physical or mental disability.
+                            </li>
+                          </ul>
+                          <p>
+                            The Fair Housing Act also requires certain new multifamily dwellings to be accessible for persons with disabilities.
+                          </p>
+                          <p>
+                            <b>
+                              Note:
+                            </b>
+                             Disability discrimination does not include being treated unfairly because you currently use (or are addicted to) an illegal controlled substance. Controlled substances are defined in 
+                            <a
+                              href="https://www.govinfo.gov/content/pkg/USCODE-2018-title21/pdf/USCODE-2018-title21-chap4-subchapII-sec102.pdf"
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              Section 102 of the Controlled Substances Act (21 U.S.C. 802)
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="usa-card__container mt-3"
+                    >
+                      <header
+                        className="usa-card__header"
+                      >
+                        <h3
+                          className="usa-card__heading"
+                        >
+                          What will I need to provide?
+                        </h3>
+                      </header>
+                      <header
+                        className="usa-card__header mt-3"
+                      >
+                        <h5
+                          className="usa-card__heading"
+                        >
+                          Contact information
+                        </h5>
+                      </header>
+                      <div
+                        className="usa-card__body"
+                      >
+                        <ul
+                          className="custom"
+                        >
+                          <li>
+                            Your name, address, phone number, and email address
+                          </li>
+                          <li>
+                            A second point of contact (optional)
+                          </li>
+                        </ul>
+                      </div>
+                      <header
+                        className="usa-card__header  mt-3"
+                      >
+                        <h5
+                          className="usa-card__heading"
+                        >
+                          Details about what happened
+                        </h5>
+                      </header>
+                      <div
+                        className="usa-card__body"
+                      >
+                        <ul
+                          className="custom"
+                        >
+                          <li>
+                            <strong>
+                              Why:
+                            </strong>
+                             Why you were discriminated against
+                          </li>
+                          <li>
+                            <strong>
+                              Who:
+                            </strong>
+                             Who discriminated against you
+                          </li>
+                          <li>
+                            <strong>
+                              Where:
+                            </strong>
+                             Where the discrimination happened
+                          </li>
+                          <li>
+                            <strong>
+                              When:
+                            </strong>
+                             The date the discrimination happened
+                          </li>
+                          <li>
+                            <strong>
+                              What:
+                            </strong>
+                             A written summary of what happened
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div
+                      className="usa-card__container mt-3"
+                    >
+                      <header
+                        className="usa-card__header"
+                      >
+                        <h3
+                          className="usa-card__heading"
+                        >
+                          How long will it take?
+                        </h3>
+                      </header>
+                      <div
+                        className="usa-card__body"
+                      >
+                        <p>
+                          It will take you 
+                          <strong>
+                            15-20 minutes
+                          </strong>
+                           to fill out the form. The form won't time out until you close your Internet browser.
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      className="usa-card__footer mt-2"
+                    >
+                      <button
+                        className="usa-button"
+                        onClick={[Function]}
+                      >
+                        Start my complaint
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer
+    className="usa-footer"
+  >
+    <div
+      className="usa-footer__secondary-section footer"
+    >
+      <div
+        className="grid-container"
+      >
+        <div
+          className="grid-row grid-gap"
+        >
+          <div
+            className="usa-footer__logo grid-row mobile-lg:grid-col-6 mobile-lg:grid-gap-2"
+          >
+            <div
+              className="mobile-lg:grid-col-auto"
+            >
+              <p
+                className="usa-text-small"
+              >
+                Powered by
+              </p>
+            </div>
+            <div
+              className="mobile-lg:grid-col-auto"
+            >
+              <img
+                alt=""
+                role="img"
+                src="faas-logo.png"
+                style={
+                  Object {
+                    "marginTop": "-20px",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;

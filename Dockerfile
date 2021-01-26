@@ -17,10 +17,12 @@ RUN yarn install
 # add app
 COPY . .
 
+RUN yarn build 
+
 EXPOSE 3000
 
-# start app
-CMD ["yarn", "start"]
+# start app and serve-static
+CMD ["yarn", "serve"]
 
 
 

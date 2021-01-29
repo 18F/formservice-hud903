@@ -14,19 +14,27 @@ Main page styles
   word-wrap: break-word;
   background-clip: border-box;
   border-radius: 0.25rem;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 20px;
 }
 
 ul.custom {
   list-style-type: disc;
 }
 
-@media (min-width: 64em) {
-  #home .usa-accordion {
-    width: 88%;
-  }
+.skinnier {
+  margin-right: 8rem;
 }
-@media (max-width: 63.99em) {
-  #home .usa-accordion {
-    width: 100%;
-  }
+
+.bodyfont {
+  font-size: 1.25rem;
+}
+
+.usa-prose {
+  font-size: 1.25rem;
+}
+
+.accordionCloseBottomButton {
+  margin-left: 28rem;
 }

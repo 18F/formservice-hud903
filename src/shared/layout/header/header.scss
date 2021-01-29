@@ -20,9 +20,3 @@ $header-color-hover: darken($header-color, 20%);
   top: 0px;
   z-index: 1031;
 }
-
-@media (min-width: 64em) {
-  .header-banner {
-    width: 87.5%;
-  }
-}

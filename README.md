@@ -65,6 +65,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
+For deploying to S3 and CloudFront: [https://wolovim.medium.com/deploying-create-react-app-to-s3-or-cloudfront-48dae4ce0af](https://wolovim.medium.com/deploying-create-react-app-to-s3-or-cloudfront-48dae4ce0af)
+
+For deploying to EKS using docker:
+
+1. Navigate to the directory with the `Dockerfile` and run the following command: 
+1. `run docker build -t <image_name> .`
+1. Tag a local image with name <image_name> into the <repository_name> repository with <version_id>
+1. `docker tag <image_name> <repository_name>/<image_name>:<version_id>`
+1. Push the docker image to Amazon ECR: https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html
+1. Turn off the existing 
+1. kubectl scale deploy my-awesome-deployment --replicas=0
+
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

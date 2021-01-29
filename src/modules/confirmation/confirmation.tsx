@@ -1,7 +1,7 @@
 import "./confirmation.scss";
 import iconForwardArrow from "../../content/images/arrow_forward.svg";
 
-let handleAccordionClick = (headerId, contentId )=>{
+const handleAccordionClick = (headerId, contentId )=>{
   let accordionTopButton = document.getElementById(headerId);
   let accordionContent = document.getElementById(contentId);
   if(accordionTopButton && accordionContent){

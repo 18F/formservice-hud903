@@ -2,7 +2,7 @@ import "./home.scss";
 import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 
-let handleAccordionClick = (headerId, contentId )=>{
+const handleAccordionClick = (headerId, contentId )=>{
   let accordionTopButton = document.getElementById(headerId);
   let accordionContent = document.getElementById(contentId);
   if(accordionTopButton && accordionContent){

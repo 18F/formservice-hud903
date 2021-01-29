@@ -2,9 +2,9 @@ import "./home.scss";
 import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 
-function handleAccordionClick(headerId, contentId){
-  var accordionTopButton = document.getElementById(headerId);
-  var accordionContent = document.getElementById(contentId);
+let handleAccordionClick = (headerId, contentId )=>{
+  let accordionTopButton = document.getElementById(headerId);
+  let accordionContent = document.getElementById(contentId);
   if(accordionTopButton && accordionContent){
     accordionTopButton.setAttribute("aria-expanded", "false");
     accordionContent.setAttribute("hidden", "true");

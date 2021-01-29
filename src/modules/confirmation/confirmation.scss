@@ -15,17 +15,10 @@ confirmation page styles
   word-wrap: break-word;
   background-clip: border-box;
   border-radius: 0.25rem;
-  padding-right: 50px;
-  padding-left: 50px;
-  padding-top: 20px;
 }
 
 ul.custom {
   list-style-type: disc;
-}
-
-.skinnier {
-  margin-right: 8rem;
 }
 
 .bodyfont {
@@ -37,6 +30,21 @@ a {
   font-weight: bold;
 }
 
-.accordionCloseBottomButton {
-  margin-left: 28rem;
+@media (min-width: 64em) {
+  .usa--card {
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 20px;
+  }
+  .usa-button--outline {
+    float: right;
+  }
+  .skinnier {
+    margin-right: 8rem;
+  }
+}
+@media (max-width: 63.99em) {
+  .skinnier {
+    margin-right: 1rem;
+  }
 }

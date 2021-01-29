@@ -103,7 +103,7 @@ export const Home = () => {
                 </ul>
 
                 <p>
-                  <button className={"accordionCloseBottomButton"} onClick={() => handleAccordionClick('a1header', 'a1')}>
+                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a1header', 'a1')}>
                     Close expanded section
                   </button>
                 </p>
@@ -242,7 +242,7 @@ export const Home = () => {
                 </p>
 
                 <p>
-                  <button className={"accordionCloseBottomButton"} onClick={() => handleAccordionClick('a2header', 'a2')}>
+                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a2header', 'a2')}>
                     Close expanded section
                   </button>
                 </p>
@@ -305,7 +305,7 @@ export const Home = () => {
                   <li>Hours: Monday-Friday; 9:00am-5:00pm Eastern Time</li>
                 </ul>
                 <p>
-                  <button className={"accordionCloseBottomButton"} onClick={() => handleAccordionClick('a3header', 'a3')}>
+                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a3header', 'a3')}>
                     Close expanded section
                   </button>
                 </p>
@@ -360,7 +360,7 @@ export const Home = () => {
                 </p>
 
                 <p>
-                  <button className={"accordionCloseBottomButton"} onClick={() => handleAccordionClick('a4header', 'a4')}>
+                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a4header', 'a4')}>
                     Close expanded section
                   </button>
                 </p>
@@ -414,7 +414,7 @@ export const Home = () => {
                 </ol>
 
                 <p>
-                  <button className={"accordionCloseBottomButton"} onClick={() => handleAccordionClick('a5header', 'a5')}>
+                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a5header', 'a5')}>
                     Close expanded section
                   </button>
                 </p>

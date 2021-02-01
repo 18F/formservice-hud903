@@ -1,28 +1,26 @@
 import "./home.scss";
 import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
-
-const handleAccordionClick = (headerId, contentId )=>{
-  let accordionTopButton = document.getElementById(headerId);
-  let accordionContent = document.getElementById(contentId);
-  if(accordionTopButton && accordionContent){
-    accordionTopButton.setAttribute("aria-expanded", "false");
-    accordionContent.setAttribute("hidden", "true");
-  }
-}
-
 export const Home = () => {
   const history = useHistory();
   const handleFheoRoute = useCallback(() => history.push("/fheo"), [history]);
-
+  const hidden = true;
+  const handleAccordionClick = (headerId, contentId) => {
+    let accordionTopButton = document.getElementById(headerId);
+    let accordionContent = document.getElementById(contentId);
+      if(accordionTopButton && accordionContent){
+          accordionTopButton.setAttribute("aria-expanded", "false");
+          accordionContent.setAttribute("hidden", "true");
+      }
+  }
   return (
     <div id="home">
       <div className="usa--card">
         <div className="usa-card__container">
           <header className="usa-card__header">
-            <h1 className="usa-card__heading">
+            <h3 className="usa-card__heading">
               <strong>Should I file a discrimination complaint?</strong>
-            </h1>
+            </h3>
           </header>
           <div className="usa-card__body bodyfont skinnier mt-4">
             <p>
@@ -45,7 +43,7 @@ export const Home = () => {
                   What is housing discrimination?
                 </button>
               </h2>
-              <div id="a1" className="usa-accordion__content usa-prose"
+              <div id="a1" className="usa-accordion__content usa-prose" hidden={hidden}
               >
                 <p>
                   <strong>Definition: </strong>discrimination
@@ -118,7 +116,7 @@ export const Home = () => {
                   What are the protected classes?
                 </button>
               </h2>
-              <div id="a2" className="usa-accordion__content usa-prose">
+              <div id="a2" className="usa-accordion__content usa-prose" hidden={hidden}>
                 <p>
                   The federal Fair Housing Act bans discrimination in housing
                   (and housing-related transactions) based on
@@ -247,7 +245,7 @@ export const Home = () => {
                   </button>
                 </p>
               </div>
-              <h2 className="usa-accordion__heading mt-3">
+              <h2 className="usa-accordion__heading mt-3"> 
                 <button
                   className="usa-accordion__button bodyfont"
                   aria-expanded="false"
@@ -259,7 +257,7 @@ export const Home = () => {
                   maintenance issues)
                 </button>
               </h2>
-              <div id="a3" className="usa-accordion__content usa-prose">
+              <div id="a3" className="usa-accordion__content usa-prose" hidden={hidden}>
                 <p>
                   If you have an issue that does not involve discrimination, you
                   should not file a complaint here.
@@ -320,7 +318,7 @@ export const Home = () => {
                   I’m homeless or at risk of becoming homeless. Who can help?
                 </button>
               </h2>
-              <div id="a4" className="usa-accordion__content usa-prose">
+              <div id="a4" className="usa-accordion__content usa-prose" hidden={hidden}>
                 <p>
                   We investigate housing discrimination, and unfortunately we
                   can’t help you quickly find temporary housing.
@@ -365,7 +363,7 @@ export const Home = () => {
                   </button>
                 </p>
               </div>
-              <h2 className="usa-accordion__heading mt-3">
+              <h2 className="usa-accordion__heading mt-3"> 
                 <button
                   className="usa-accordion__button bodyfont"
                   aria-expanded="false"
@@ -376,7 +374,7 @@ export const Home = () => {
                   another reason. What should I do?
                 </button>
               </h2>
-              <div id="a5" className="usa-accordion__content usa-prose">
+              <div id="a5" className="usa-accordion__content usa-prose" hidden={hidden}>
                 <p>
                   File a housing discrimination complaint here and{" "}
                   <a

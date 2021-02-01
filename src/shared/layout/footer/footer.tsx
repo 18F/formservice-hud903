@@ -1,5 +1,5 @@
 import './footer.scss';
-import faasLogo from "../../../content/images/FaaS-Logo 20px.png";
+import faasLogo from "../../../content/images/formsgov.png";
 const Footer = () => (
   <footer className="usa-footer" >
     <div className="usa-footer__secondary-section footer">
@@ -10,7 +10,7 @@ const Footer = () => (
               <p className="usa-text-small">Powered by</p>
             </div>
             <div className="mobile-lg:grid-col-auto">
-              <img src={faasLogo} role="img" alt="" style={{ marginTop: '-20px', height: '20px' }} />
+              <img src={faasLogo} alt="footer logo" style={{ marginTop: '-20px' }} width="150" height="20" />
             </div>
           </div>
         </div>

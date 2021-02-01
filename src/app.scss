@@ -320,15 +320,16 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 }
 .card {
   color: #000;
-  background-color: #fafbfc;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: none;
   border-radius: 0.25rem;
-  padding: 20px;
 }
 @media (min-width: 64em) {
   .card {
     width: 87.5%;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 10px;
   }
   .comp-container {
     width: 87.5%;

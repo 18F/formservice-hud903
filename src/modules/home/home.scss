@@ -1,6 +1,7 @@
 /* ==========================================================================
 Main page styles
 ========================================================================== */
+
 .usa--card {
   position: relative;
   display: -webkit-box;
@@ -16,17 +17,33 @@ Main page styles
   border-radius: 0.25rem;
 }
 
+@media (min-width: 64em) {
+  .usa--card {
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 20px;
+  }
+  .usa-button--outline {
+    float: right;
+  }
+  .skinnier {
+    margin-right: 8rem;
+  }
+}
+@media (max-width: 63.99em) {
+  .skinnier {
+    margin-right: 1rem;
+  }
+}
+
 ul.custom {
   list-style-type: disc;
 }
 
-@media (min-width: 64em) {
-  #home .usa-accordion {
-    width: 88%;
-  }
+.bodyfont {
+  font-size: 1.25rem;
 }
-@media (max-width: 63.99em) {
-  #home .usa-accordion {
-    width: 100%;
-  }
+
+.usa-prose {
+  font-size: 1.25rem;
 }

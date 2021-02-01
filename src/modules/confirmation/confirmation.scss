@@ -1,7 +1,50 @@
 /* ==========================================================================
 confirmation page styles
 ========================================================================== */
+
+.usa--card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border-radius: 0.25rem;
+}
+
+ul.custom {
+  list-style-type: disc;
+}
+
+.bodyfont {
+  font-size: 1.25rem;
+}
+
 a {
   color: #005ea2;
   font-weight: bold;
+}
+
+@media (min-width: 64em) {
+  .usa--card {
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 20px;
+  }
+  .usa-button--outline {
+    float: right;
+  }
+  .skinnier {
+    margin-right: 8rem;
+  }
+}
+@media (max-width: 63.99em) {
+  .skinnier {
+    margin-right: 1rem;
+  }
 }

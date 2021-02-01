@@ -70,7 +70,7 @@ const Header = () => {
       <header className="usa-nav-container" role="banner" >
         <Link to="/">
           <div>
-            <img className="header-banner" src={hudLogo} alt="Home" />
+            <img src={hudLogo} alt="Home" />
           </div>
         </Link>
       </header>

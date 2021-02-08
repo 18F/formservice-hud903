@@ -68,7 +68,7 @@ const Header = () => {
         <div className="usa-navbar" style={{ background: '#11294c' }}>
           <div className="grid-row">
             <div className="grid-col-2  usa-logo">
-              <img className="hud-logo " src={hudLogo} alt="HUD Logo" />
+              <img className="hud-logo" src={hudLogo} alt="HUD Logo" />
             </div>
             <div className="grid-col-8  header-txt">
               File a housing discrimination complaint with HUD

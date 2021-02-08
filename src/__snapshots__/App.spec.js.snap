@@ -25,7 +25,7 @@ exports[`The App component renders as expected 1`] = `
           className="usa-banner__header"
         >
           <div
-            className="usa-banner__inner banner"
+            className="usa-banner__inner"
           >
             <div
               className="grid-col-auto"
@@ -139,7 +139,7 @@ exports[`The App component renders as expected 1`] = `
       role="banner"
     >
       <div
-        className="usa-navbar"
+        className="logo-navbar"
         style={
           Object {
             "background": "#11294c",

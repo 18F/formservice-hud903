@@ -16,7 +16,7 @@ const Header = () => {
       <section className="usa-banner" aria-label="Official government website">
         <div className="usa-accordion">
           <header className="usa-banner__header">
-            <div className="usa-banner__inner banner">
+            <div className="usa-banner__inner">
               <div className="grid-col-auto">
                 <img className="usa-banner__header-flag" src={usFlag} alt="U.S. flag" />
               </div>
@@ -65,7 +65,7 @@ const Header = () => {
         </div>
       </section>
       <header className="usa-header usa-header--extended" role="banner" >
-        <div className="usa-navbar" style={{ background: '#11294c' }}>
+        <div className="logo-navbar" style={{ background: '#11294c' }}>
           <div className="grid-row">
             <div className="grid-col-2  usa-logo">
               <img className="hud-logo" src={hudLogo} alt="HUD Logo" />

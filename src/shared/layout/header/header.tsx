@@ -8,7 +8,7 @@ import iconDot from "../../../content/images/icon-dot-gov.svg";
 
 import iconHttps from "../../../content/images/icon-https.svg";
 
-import hudLogo from "../../../content/images/HUD-logo.png";
+import hudLogo from "../../../content/images/hud-logo.png";
 
 const Header = () => {
   return (

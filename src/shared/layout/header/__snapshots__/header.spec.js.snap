@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The App component renders as expected 1`] = `
+<div
+  style={
+    Object {
+      "background": "#ffffff",
+    }
+  }
+>
+  <section
+    aria-label="Official government website"
+    className="usa-banner"
+  >
+    <div
+      className="usa-accordion"
+    >
+      <header
+        className="usa-banner__header"
+      >
+        <div
+          className="usa-banner__inner"
+        >
+          <div
+            className="grid-col-auto"
+          >
+            <img
+              alt="U.S. flag"
+              className="usa-banner__header-flag"
+              src="us_flag_small.png"
+            />
+          </div>
+          <div
+            className="grid-col-fill tablet:grid-col-auto"
+          >
+            <p
+              className="usa-banner__header-text"
+            >
+              An official website of the United States Government
+            </p>
+            <p
+              aria-hidden="true"
+              className="usa-banner__header-action"
+            >
+              Here’s how you know
+            </p>
+          </div>
+          <button
+            aria-controls="gov-banner"
+            aria-expanded="false"
+            className="usa-accordion__button usa-banner__button"
+          >
+            <span
+              className="usa-banner__button-text"
+            >
+              Here’s how you know
+            </span>
+          </button>
+        </div>
+      </header>
+      <div
+        className="usa-banner__content usa-accordion__content"
+        hidden={true}
+        id="gov-banner"
+      >
+        <div
+          className="grid-row grid-gap-lg"
+        >
+          <div
+            className="usa-banner__guidance tablet:grid-col-6"
+          >
+            <img
+              alt="Dot gov"
+              className="usa-banner__icon usa-media-block__img"
+              src="icon-dot-gov.svg"
+            />
+            <div
+              className="usa-media-block__body"
+            >
+              <p>
+                <strong>
+                  Official websites use .gov
+                </strong>
+                <br />
+                A 
+                <strong>
+                  .gov
+                </strong>
+                 website belongs to an official government organization in the United States.
+              </p>
+            </div>
+          </div>
+          <div
+            className="usa-banner__guidance tablet:grid-col-6"
+          >
+            <img
+              alt="Https"
+              className="usa-banner__icon usa-media-block__img"
+              src="icon-https.svg"
+            />
+            <div
+              className="usa-media-block__body"
+            >
+              <p>
+                <strong>
+                  Secure .gov websites use HTTPS
+                </strong>
+                <br />
+                A 
+                <strong>
+                  lock
+                </strong>
+                 (
+                <span />
+                <img
+                  alt="A locked padlock"
+                  src="lock.png"
+                />
+                ) or 
+                <strong>
+                  https://
+                </strong>
+                 means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <header
+    className="usa-header usa-header--extended"
+    role="banner"
+  >
+    <div
+      className="logo-navbar"
+      style={
+        Object {
+          "background": "#11294c",
+        }
+      }
+    >
+      <div
+        className="grid-row"
+      >
+        <div
+          className="grid-col-2  usa-logo"
+        >
+          <img
+            alt="HUD Logo"
+            className="hud-logo"
+            src="hud-logo.png"
+          />
+        </div>
+        <div
+          className="grid-col-8  header-txt"
+        >
+          File a housing discrimination complaint with HUD
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+`;

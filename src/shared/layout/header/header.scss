@@ -2,21 +2,66 @@ $header-color: #fff;
 $header-color-secondary: #bbb;
 $header-color-hover: darken($header-color, 20%);
 
-.hud-logo {
-  display: inline-block;
-  width: 50%;
-  height: 500px;
-  margin-left: 22rem;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  background: url('../../../content/images/hud-logo.png') no-repeat center top;
-  background-size: contain;
+.usa-header--extended .logo-navbar {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60rem; 
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: block;
+  height: auto;
+  overflow: auto;
 }
 
-.loading-bar {
-  height: 3px;
-  background-color: #009cd8;
-  position: absolute;
-  top: 0px;
-  z-index: 1031;
+@media (min-width: 64em) {
+  .flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .banner {
+    padding-left: 0rem;
+  }
+  .hud-logo {
+    width: 130px;
+    height: 130px;
+    margin-left: 1rem;
+  }
+  .header-txt {
+    color:white;
+    line-height: 45px;
+    font-style: normal;
+    font-size: 2.5rem;
+    display: block;
+    font-weight: 700;
+    margin: 2.5rem 0 1.5rem 1rem;
+  }
+  .txt-container {
+    margin-top: 2.5rem;
+    margin-left: 2.5rem;
+  }
+  
+}
+@media (max-width: 63.99em) {
+  .banner {
+    padding-left: 1rem;
+  }
+  .hud-logo {
+    width: 70px;
+    height: 70px;
+    margin-top: 2rem;
+  }
+  .usa-navbar {
+    height: 6rem;
+  }
+  .header-txt {
+      color: white;
+      line-height: 25px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 1.5rem 0 1.5rem 1rem;
+  }
+    .txt-container {
+      margin-top: -3.8rem;
+      margin-left: 6.5rem;
+   }
 }

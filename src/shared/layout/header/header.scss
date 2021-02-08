@@ -20,28 +20,30 @@ $header-color-hover: darken($header-color, 20%);
   top: 0px;
   z-index: 1031;
 }
-.flex-container {
-  display: flex;
-  flex-wrap: nowrap;
-}
-.flex-container > div {
-  margin: 2.5rem;
-}
-.logo-txt {
-  color:white;
-  line-height: 50px;
-  font-size: 2.9rem;
-  font-weight: 600;
-}
 
 @media (min-width: 64em) {
+  .flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+  }
   .banner {
     padding-left: 0rem;
   }
   .hud-logo {
-    width: 200px;
-    height: 140px;
-    margin-bottom: 0.9rem;
+    width: 140px;
+    height: 130px;
+    // margin-bottom: 0.9rem;
+  }
+  .header-txt {
+    color:white;
+    line-height: 50px;
+    font-size: 2.9rem;
+    font-weight: 600;
+    margin: 2rem 0 1.5rem 1rem;
+  }
+  .txt-container {
+    margin-top: 2.5rem;
+    margin-left: 2.5rem;
   }
   
 }
@@ -50,12 +52,21 @@ $header-color-hover: darken($header-color, 20%);
     padding-left: 1rem;
   }
   .hud-logo {
-    width: 100px;
+    width: 70px;
     height: 70px;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    padding-top: 0.6rem;
   }
   .usa-navbar {
     height: 6rem;
   }
+  .header-txt {
+      color: white;
+      line-height: 25px;
+      font-size: 1.5rem;
+      font-weight: 600;
+  }
+    .txt-container {
+      margin-top: -3.8rem;
+      margin-left: 6.5rem;
+   }
 }

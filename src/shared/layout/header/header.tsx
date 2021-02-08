@@ -66,15 +66,13 @@ const Header = () => {
       </section>
       <header className="usa-header usa-header--extended" role="banner" >
         <div className="usa-navbar" style={{ background: '#11294c' }}>
-          <div className="flex-container">
-            <div className="usa-logo">
+          <div className="grid-row">
+            <div className="grid-col-2  usa-logo">
               <img className="hud-logo " src={hudLogo} alt="HUD Logo" />
             </div>
-          <div>
-              <span className="logo-txt">
-                File a housing discrimination complaint with HUD
-             </span>
-          </div>
+            <div className="grid-col-8  header-txt">
+              File a housing discrimination complaint with HUD
+            </div>
           </div>
         </div>
       </header>

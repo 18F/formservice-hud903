@@ -149,7 +149,7 @@ exports[`The App component renders as expected 1`] = `
           <img
             alt="HUD Logo"
             className="hud-logo"
-            src="HUD-logo.png"
+            src="hud-logo.png"
           />
         </div>
         <div

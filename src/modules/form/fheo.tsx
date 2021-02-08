@@ -27,9 +27,9 @@ export const Fheo = () => {
                     options={{
                         i18n: {
                             en: {
-                                'next': 'Continue',
-                                'previous': 'Go Back',
-                                'submit': 'Submit my Complaint'
+                                'next': 'CONTINUE',
+                                'previous': 'GO BACK',
+                                'submit': 'SUBMIT MY COMPLAINT'
                             }
                         }
                     }}

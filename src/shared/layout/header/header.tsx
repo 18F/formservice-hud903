@@ -1,6 +1,4 @@
 import './header.scss';
-import React from 'react';
-import { Link } from 'react-router-dom';
 
 import lock from "../../../content/images/lock.png";
 
@@ -10,7 +8,7 @@ import iconDot from "../../../content/images/icon-dot-gov.svg";
 
 import iconHttps from "../../../content/images/icon-https.svg";
 
-import hudLogo from "../../../content/images/hud-logo.png";
+import hudLogo from "../../../content/images/HUD-logo.png";
 
 const Header = () => {
   return (
@@ -18,12 +16,12 @@ const Header = () => {
       <section className="usa-banner" aria-label="Official government website">
         <div className="usa-accordion">
           <header className="usa-banner__header">
-            <div className="usa-banner__inner">
+            <div className="usa-banner__inner banner">
               <div className="grid-col-auto">
                 <img className="usa-banner__header-flag" src={usFlag} alt="U.S. flag" />
               </div>
               <div className="grid-col-fill tablet:grid-col-auto">
-                <p className="usa-banner__header-text" >An official website of the United States Government</p>
+                <p className="usa-banner__header-text">An official website of the United States Government</p>
                 <p className="usa-banner__header-action" aria-hidden="true">Here’s how you know</p>
               </div>
               <button className="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner">
@@ -66,13 +64,19 @@ const Header = () => {
           </div>
         </div>
       </section>
-
-      <header className="usa-nav-container" role="banner" >
-        <Link to="/">
+      <header className="usa-header usa-header--extended" role="banner" >
+        <div className="usa-navbar" style={{ background: '#11294c' }}>
+          <div className="flex-container">
+            <div className="usa-logo">
+              <img className="hud-logo " src={hudLogo} alt="HUD Logo" />
+            </div>
           <div>
-            <img src={hudLogo} alt="Home" />
+              <span className="logo-txt">
+                File a housing discrimination complaint with HUD
+             </span>
           </div>
-        </Link>
+          </div>
+        </div>
       </header>
     </div>
   );

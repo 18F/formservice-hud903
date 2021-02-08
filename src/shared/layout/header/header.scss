@@ -2,14 +2,14 @@ $header-color: #fff;
 $header-color-secondary: #bbb;
 $header-color-hover: darken($header-color, 20%);
 
-.hud-logo {
+.logo-back {
   display: inline-block;
   width: 50%;
   height: 500px;
   margin-left: 22rem;
   margin-bottom: 0;
   padding-bottom: 0;
-  background: url('../../../content/images/hud-logo.png') no-repeat center top;
+  background: url('../../../content/images/HUD-logo.png') no-repeat center top;
   background-size: contain;
 }
 
@@ -19,4 +19,43 @@ $header-color-hover: darken($header-color, 20%);
   position: absolute;
   top: 0px;
   z-index: 1031;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.flex-container > div {
+  margin: 2.5rem;
+}
+.logo-txt {
+  color:white;
+  line-height: 50px;
+  font-size: 2.9rem;
+  font-weight: 600;
+}
+
+@media (min-width: 64em) {
+  .banner {
+    padding-left: 0rem;
+  }
+  .hud-logo {
+    width: 200px;
+    height: 140px;
+    margin-bottom: 0.9rem;
+  }
+  
+}
+@media (max-width: 63.99em) {
+  .banner {
+    padding-left: 1rem;
+  }
+  .hud-logo {
+    width: 100px;
+    height: 70px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  .usa-navbar {
+    height: 6rem;
+  }
 }

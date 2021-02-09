@@ -1,6 +1,4 @@
 import './header.scss';
-import React from 'react';
-import { Link } from 'react-router-dom';
 
 import lock from "../../../content/images/lock.png";
 
@@ -23,7 +21,7 @@ const Header = () => {
                 <img className="usa-banner__header-flag" src={usFlag} alt="U.S. flag" />
               </div>
               <div className="grid-col-fill tablet:grid-col-auto">
-                <p className="usa-banner__header-text" >An official website of the United States Government</p>
+                <p className="usa-banner__header-text">An official website of the United States Government</p>
                 <p className="usa-banner__header-action" aria-hidden="true">Here’s how you know</p>
               </div>
               <button className="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner">
@@ -66,13 +64,17 @@ const Header = () => {
           </div>
         </div>
       </section>
-
-      <header className="usa-nav-container" role="banner" >
-        <Link to="/">
-          <div>
-            <img src={hudLogo} alt="Home" />
+      <header className="usa-header usa-header--extended" role="banner" >
+        <div className="logo-navbar" style={{ background: '#11294c' }}>
+          <div className="grid-row">
+            <div className="grid-col-2  usa-logo">
+              <img className="hud-logo" src={hudLogo} alt="HUD Logo" />
+            </div>
+            <div className="grid-col-8  header-txt">
+              File a housing discrimination complaint with HUD
+            </div>
           </div>
-        </Link>
+        </div>
       </header>
     </div>
   );

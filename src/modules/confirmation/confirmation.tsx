@@ -1,6 +1,6 @@
 import "./confirmation.scss";
 import iconForwardArrow from "../../content/images/arrow_forward.svg";
-
+const hidden = true;
 const handleAccordionClick = (headerId, contentId )=>{
   let accordionTopButton = document.getElementById(headerId);
   let accordionContent = document.getElementById(contentId);
@@ -45,7 +45,7 @@ export const Confirmation = () => {
                   When will I hear back from HUD about my complaint?
                 </button>
               </h2>
-              <div id="a1" className="usa-accordion__content usa-prose">
+              <div id="a1" className="usa-accordion__content usa-prose" hidden={hidden}>
                 <p>
                   You should hear back from us within <strong>7-14 days</strong>
                   , but it can take us as long as 30 days to process your
@@ -121,7 +121,7 @@ export const Confirmation = () => {
                   What happens next?
                 </button>
               </h2>
-              <div id="a2" className="usa-accordion__content usa-prose">
+              <div id="a2" className="usa-accordion__content usa-prose" hidden={hidden}>
                 <p>After we review your complaint, we will either:</p>
                 <p>
                   <strong>
@@ -168,7 +168,7 @@ export const Confirmation = () => {
                   How can I check the status of my complaint?
                 </button>
               </h2>
-              <div id="a3" className="usa-accordion__content usa-prose">
+              <div id="a3" className="usa-accordion__content usa-prose" hidden={hidden}>
                 <p>
                   <a
                     target="_blank"
@@ -177,7 +177,7 @@ export const Confirmation = () => {
                     href="https://www.hud.gov/program_offices/fair_housing_equal_opp/contact_fheo#c4"
                   >
                     Call your nearest HUD fair housing office
-                  </a>
+                  </a> to check the status of your complaint.
                 </p>
                 <p>
                   We encourage you to wait to hear from us before calling. It
@@ -189,7 +189,7 @@ export const Confirmation = () => {
                     housing office; and
                   </li>
                   <li>
-                    Review your complaint to determine if we have legal
+                    Review your complaint to determine if we have the legal
                     authority to investigate it further.
                   </li>
                 </ol>
@@ -209,7 +209,7 @@ export const Confirmation = () => {
                   Why might HUD reject my complaint?
                 </button>
               </h2>
-              <div id="a4" className="usa-accordion__content usa-prose">
+              <div id="a4" className="usa-accordion__content usa-prose" hidden={hidden}>
                 <p>
                   We only reject complaints that we do not have jurisdiction (or
                   legal authority) to investigate. We refer to this as{" "}
@@ -222,8 +222,8 @@ export const Confirmation = () => {
                   the federally protected classes.
                 </p>
                 <p>
-                  For us to investigate, you must claim (or allege) in your
-                  complaint that you experienced discrimination in housing
+                  For us to investigate your complaint, you must claim (or allege) 
+                  that you experienced discrimination in housing
                   because of your: 1) race, 2) color, 3) religion, 4) national
                   origin, 5) sex, 6) disability, or 7) familial status.
                 </p>
@@ -272,7 +272,7 @@ export const Confirmation = () => {
                   housing organization?
                 </button>
               </h2>
-              <div id="a5" className="usa-accordion__content usa-prose">
+              <div id="a5" className="usa-accordion__content usa-prose" hidden={hidden}>
                 <p>
                   If your fair housing issue is only covered by a state or local
                   law, we may refer your complaint to a state or local fair

@@ -135,21 +135,36 @@ exports[`The App component renders as expected 1`] = `
       </div>
     </section>
     <header
-      className="usa-nav-container"
+      className="usa-header usa-header--extended"
       role="banner"
     >
-      <a
-        href="/"
-        onClick={[Function]}
+      <div
+        className="logo-navbar"
+        style={
+          Object {
+            "background": "#11294c",
+          }
+        }
       >
-        <div>
-          <img
-            alt="Home"
-            className="header-banner"
-            src="hud-logo.png"
-          />
+        <div
+          className="grid-row"
+        >
+          <div
+            className="grid-col-2  usa-logo"
+          >
+            <img
+              alt="HUD Logo"
+              className="hud-logo"
+              src="hud-logo.png"
+            />
+          </div>
+          <div
+            className="grid-col-8  header-txt"
+          >
+            File a housing discrimination complaint with HUD
+          </div>
         </div>
-      </a>
+      </div>
     </header>
   </div>
   <main
@@ -171,346 +186,501 @@ exports[`The App component renders as expected 1`] = `
             <div
               id="home"
             >
-              <ul
-                className="usa-card-group"
-                style={
-                  Object {
-                    "paddingLeft": "0px",
-                  }
-                }
+              <div
+                className="usa--card"
               >
-                <li
-                  className="usa--card"
+                <div
+                  className="usa-card__container"
                 >
-                  <div
-                    className="usa-card__container"
+                  <header
+                    className="usa-card__header"
                   >
-                    <header
-                      className="usa-card__header"
+                    <h1
+                      className="usa-card__heading"
                     >
-                      <h3
-                        className="usa-card__heading"
-                      >
-                        Should I fill out this form?
-                      </h3>
-                    </header>
+                      <strong>
+                        Should I file a discrimination complaint?
+                      </strong>
+                    </h1>
+                  </header>
+                  <div
+                    className="usa-card__body bodyfont skinnier mt-4"
+                  >
+                    <p>
+                      You should complete this form if you experienced
+                       
+                      <strong>
+                        housing discrimination
+                      </strong>
+                       because of your: 1) race; 2) color; 3) religion; 4) national origin; 5) sex; 6) disability; or 7) familial status. These characteristics are known as
+                       
+                      <strong>
+                        protected classes
+                      </strong>
+                       under the federal Fair Housing Act.
+                    </p>
                     <div
-                      className="usa-card__body"
+                      className="usa-accordion--bordered mt-4"
                     >
-                      <p>
-                        You should complete this form if you experienced 
-                        <strong>
-                          housing discrimination 
-                        </strong>
-                        because of your: 
-                        <br />
-                        1) race; 2) color; 3) religion; 4) national origin; 5) sex; 6) disability; or 7) familial status.
-                        <br />
-                        <br />
-                        NOTE: These characteristics are known as 
-                        <strong>
-                          protected classes
-                        </strong>
-                         under federal law.
-                        <br />
-                      </p>
-                      <div
-                        className="usa-accordion"
+                      <h2
+                        className="usa-accordion__heading"
                       >
-                        <h2
-                          className="usa-accordion__heading"
+                        <button
+                          aria-controls="a1"
+                          aria-expanded="false"
+                          className="usa-accordion__button bodyfont"
+                          id="a1header"
                         >
+                          What is housing discrimination?
+                        </button>
+                      </h2>
+                      <div
+                        className="usa-accordion__content usa-prose"
+                        hidden={true}
+                        id="a1"
+                      >
+                        <p>
+                          <strong>
+                            Definition: 
+                          </strong>
+                          discrimination
+                        </p>
+                        <p>
+                          Treating a person or group of people unfairly (compared to others) because of who they are or their characteristics. For example, mistreating someone because of their race.
+                        </p>
+                        <p>
+                          <strong>
+                            Definition: 
+                          </strong>
+                          housing discrimination
+                        </p>
+                        <p>
+                          An act of discrimination that happens in housing or during a housing-related transaction. For example, a landlord who refuses to rent an apartment to someone because they have two young children.
+                        </p>
+                        <p>
+                          The act of discrimination must happen because of one of the seven federally protected classes: 1) race, 2) color, 3) religion, 4) national origin, 5) sex, 6) disability, or 7) familial status.
+                        </p>
+                        <p>
+                          NOTE: Some states and localities have more protected classes, in addition to the seven federally protected classes.
+                        </p>
+                        <p>
+                          <strong>
+                            Examples of housing discrimination
+                          </strong>
+                        </p>
+                        <ul>
+                          <li>
+                            A landlord tells you an apartment is not available to rent, but you know it is available. You suspect the landlord refused to show you the apartment because you are Black.
+                          </li>
+                          <li>
+                            A homeowners association (or HOA) denies your request for a reserved parking spot that you need because of your physical disability. This is a denial of a reasonable accommodation request.
+                          </li>
+                          <li>
+                            A maintenance man who works for your apartment complex sexually harasses you in your apartment by making unwanted sexual advances.
+                          </li>
+                          <li>
+                             
+                            A real estate agent makes comments like “you wouldn’t want to live in that neighborhood” and only shows you homes in heavily Hispanic areas because you are Hispanic.
+                          </li>
+                        </ul>
+                        <p>
                           <button
-                            aria-controls="a1"
-                            aria-expanded="false"
-                            className="usa-accordion__button"
+                            className="usa-button usa-button--outline"
+                            onClick={[Function]}
                           >
-                            What is housing discrimination?
+                            Close expanded section
                           </button>
-                        </h2>
+                        </p>
+                      </div>
+                      <h2
+                        className="usa-accordion__heading mt-3"
+                      >
+                        <button
+                          aria-controls="a2"
+                          aria-expanded="false"
+                          className="usa-accordion__button bodyfont"
+                          id="a2header"
+                        >
+                          What are the protected classes?
+                        </button>
+                      </h2>
+                      <div
+                        className="usa-accordion__content usa-prose"
+                        hidden={true}
+                        id="a2"
+                      >
+                        <p>
+                          The federal Fair Housing Act bans discrimination in housing (and housing-related transactions) based on
+                          <strong>
+                             seven
+                          </strong>
+                           characteristics. These are called
+                          <strong>
+                             protected classes.
+                          </strong>
+                        </p>
                         <div
-                          className="usa-accordion__content usa-prose"
-                          id="a1"
+                          className="tab"
                         >
                           <p>
-                            Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
+                            <strong>
+                              1. Race
+                            </strong>
                           </p>
+                          <div
+                            className="tab"
+                          >
+                            <p>
+                              The
+                               
+                              <a
+                                className="usa-link usa-link--external"
+                                href="https://www.census.gov/topics/population/race/about.html"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                              >
+                                U.S. Census Bureau
+                              </a>
+                               
+                              defines these racial categories in the United States:
+                            </p>
+                            <ul>
+                              <li>
+                                White
+                              </li>
+                              <li>
+                                Black or African American
+                              </li>
+                              <li>
+                                Asian
+                              </li>
+                              <li>
+                                American Indian or Alaska Native
+                              </li>
+                              <li>
+                                Native Hawaiian or Other Pacific Islander
+                              </li>
+                              <li>
+                                a mixture of two or more of these groups
+                              </li>
+                            </ul>
+                          </div>
+                          <p>
+                            <strong>
+                              2. Color
+                            </strong>
+                          </p>
+                          <div
+                            className="tab"
+                          >
+                            <ul>
+                              <li>
+                                Color refers to your skin color or tone
+                              </li>
+                              <li>
+                                Within a race, skin color can vary significantly. People of the same race can discriminate against each other based on color.
+                              </li>
+                            </ul>
+                          </div>
+                          <p>
+                            <strong>
+                              3. Religion
+                            </strong>
+                          </p>
+                          <div
+                            className="tab"
+                          >
+                            <ul>
+                              <li>
+                                Religion refers to your practice (or non-practice) of a religion
+                              </li>
+                              <li>
+                                Examples: Hinduism, Judaism, Islam, Christianity
+                              </li>
+                            </ul>
+                          </div>
+                          <p>
+                            <strong>
+                              4. Sex 
+                            </strong>
+                          </p>
+                          <div
+                            className="tab"
+                          >
+                            <ul>
+                              <li>
+                                Sex refers to your gender, gender identity, or sexual orientation
+                              </li>
+                              <li>
+                                It also includes sexual harassment
+                              </li>
+                            </ul>
+                          </div>
+                          <p>
+                            <strong>
+                              5. National origin (ancestry or ethnicity)
+                            </strong>
+                          </p>
+                          <div
+                            className="tab"
+                          >
+                            <ul>
+                              <li>
+                                National origin refers to your birthplace, ethnicity, ancestry, or culture
+                              </li>
+                              <li>
+                                It also includes language, such as speaking with an accent or speaking a language other than English
+                              </li>
+                            </ul>
+                            <p>
+                              NOTE: The federal Fair Housing Act protects all U.S. residents, regardless of citizenship status. We will not ask about your citizenship status, and we will not share any information about you to immigration authorities.
+                            </p>
+                          </div>
+                          <p>
+                            <strong>
+                              6. Disability
+                            </strong>
+                          </p>
+                          <div
+                            className="tab"
+                          >
+                            <ul>
+                              <li>
+                                Disability refers to a mental or physical impairment that substantially limits one or more of your major life activities
+                              </li>
+                              <li>
+                                Major life activities include actions like seeing, hearing, speaking, walking, breathing, performing manual tasks, caring for one’s self, or working
+                              </li>
+                            </ul>
+                          </div>
+                          <p>
+                            <strong>
+                              7. Familial status (families with children under 18 years old)
+                            </strong>
+                          </p>
+                          <div
+                            className="tab"
+                          >
+                            <ul>
+                              <li>
+                                Familial status refers to having a child under 18 years old as a member of your household
+                              </li>
+                              <li>
+                                It also includes women who are pregnant and families adopting children
+                              </li>
+                            </ul>
+                          </div>
                         </div>
-                        <h2
-                          className="usa-accordion__heading"
-                        >
+                        <p>
                           <button
-                            aria-controls="a2"
-                            aria-expanded="false"
-                            className="usa-accordion__button"
+                            className="usa-button usa-button--outline"
+                            onClick={[Function]}
                           >
-                            What are the protected classes?
+                            Close expanded section
                           </button>
-                        </h2>
-                        <div
-                          className="usa-accordion__content usa-prose"
-                          id="a2"
+                        </p>
+                      </div>
+                      <h2
+                        className="usa-accordion__heading mt-3"
+                      >
+                        <button
+                          aria-controls="a3"
+                          aria-expanded="false"
+                          className="usa-accordion__button bodyfont"
+                          id="a3header"
                         >
-                          <p>
-                            <strong>
-                              Race
-                            </strong>
-                            <br />
-                            Racial discrimination means being treated unfairly because you are:
-                          </p>
-                          <ul
-                            className="custom"
-                          >
-                            <li>
-                              White;
-                            </li>
-                            <li>
-                              Black or African American;
-                            </li>
-                            <li>
-                              Asian;
-                            </li>
-                            <li>
-                              American Indian or Alaska Native;
-                            </li>
-                            <li>
-                              Native Hawaiian or Other Pacific Islander; or
-                            </li>
-                            <li>
-                              a mixture of two or more of these groups.
-                            </li>
-                          </ul>
-                          <p>
-                            Racial discrimination also includes being treated unfairly because of personal characteristics associated with race or because you are married to (or associated with) a person of a specific race.
-                            <br />
-                            Example: A seller refused to sell you their home because you are Black.
-                          </p>
-                          <p>
-                            <strong>
-                              Color
-                            </strong>
-                            <br />
-                            Color discrimination means being treated unfairly because of your skin color. While race and color overlap, they are not the same. People of various races and ethnicities may experience discrimination because of their skin color. This type of discrimination may occur within the same race.
-                          </p>
-                          <p>
-                            <strong>
-                              Religion
-                            </strong>
-                            <br />
-                            Religious discrimination means being treated unfairly because of your religious beliefs. This can include both the practice and non-practice of a religion.
-                          </p>
-                          <p>
-                            <strong>
-                              Sex
-                            </strong>
-                            <br />
-                            Sex discrimination means being treated unfairly or differently because of your sex. This includes both harassment because of a person’s sex and sexual harassment.
-                          </p>
-                          <p>
-                            <strong>
-                              National Origin
-                            </strong>
-                            <br />
-                            National origin discrimination means being treated unfairly because you:
-                          </p>
-                          <ul
-                            className="custom"
-                          >
-                            <li>
-                              are from a specific country or part of the world;
-                            </li>
-                            <li>
-                              speak a certain language or have an accent when you speak;
-                            </li>
-                            <li>
-                              are of a certain ethnic background; or
-                            </li>
-                            <li>
-                              appear to be of a certain ethnic background (even if you are not).
-                            </li>
-                          </ul>
-                          <p>
-                            National origin discrimination may also include being treated unfairly because you are married to (or associated with) a person of a specific national origin.
-                          </p>
-                          <p>
-                            <strong>
-                              Familial Status
-                            </strong>
-                            <br />
-                            Familial status discrimination means being treated unfairly because:
-                          </p>
-                          <ul
-                            className="custom"
-                          >
-                            <li>
-                              your family includes at least one child under 18 years old;
-                            </li>
-                            <li>
-                              you are pregnant; or
-                            </li>
-                            <li>
-                              you are in the process of adopting a child.
-                            </li>
-                          </ul>
-                          <p>
-                            <strong>
-                              Disability
-                            </strong>
-                            <br />
-                            Disability discrimination means being treated unfairly because you:
-                          </p>
-                          <ul
-                            className="custom"
-                          >
-                            <li>
-                              have a physical or mental disability which substantially limits any major life activity;
-                            </li>
-                            <li>
-                              have a record of a physical or mental disability; or
-                            </li>
-                            <li>
-                              are viewed as having a physical or mental disability.
-                            </li>
-                          </ul>
-                          <p>
-                            The Fair Housing Act also requires certain new multifamily dwellings to be accessible for persons with disabilities.
-                          </p>
-                          <p>
-                            <b>
-                              Note:
-                            </b>
-                             Disability discrimination does not include being treated unfairly because you currently use (or are addicted to) an illegal controlled substance. Controlled substances are defined in 
+                          Who can help if I have a housing issue that does NOT involve discrimination? (homelessness, Section 8 housing choice voucher issues, or maintenance/health and safety issues)
+                        </button>
+                      </h2>
+                      <div
+                        className="usa-accordion__content usa-prose"
+                        hidden={true}
+                        id="a3"
+                      >
+                        <p>
+                          If you have an issue that does not involve discrimination, you should not file a discrimination complaint.
+                        </p>
+                        <p>
+                          <strong>
+                            If you are currently homeless or at risk of becoming homeless:
+                          </strong>
+                        </p>
+                        <ul>
+                          <li>
                             <a
-                              href="https://www.govinfo.gov/content/pkg/USCODE-2018-title21/pdf/USCODE-2018-title21-chap4-subchapII-sec102.pdf"
+                              className="usa-link usa-link--external"
+                              href="https://www.hudexchange.info/housing-and-homeless-assistance/homeless-help/"
                               rel="noopener noreferrer"
                               target="_blank"
                             >
-                              Section 102 of the Controlled Substances Act (21 U.S.C. 802)
+                              Call your local homeless services organization
                             </a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="usa-card__container mt-3"
-                    >
-                      <header
-                        className="usa-card__header"
-                      >
-                        <h3
-                          className="usa-card__heading"
-                        >
-                          What will I need to provide?
-                        </h3>
-                      </header>
-                      <header
-                        className="usa-card__header mt-3"
-                      >
-                        <h5
-                          className="usa-card__heading"
-                        >
-                          Contact information
-                        </h5>
-                      </header>
-                      <div
-                        className="usa-card__body"
-                      >
-                        <ul
-                          className="custom"
-                        >
-                          <li>
-                            Your name, address, phone number, and email address
                           </li>
                           <li>
-                            A second point of contact (optional)
+                            <a
+                              className="usa-link usa-link--external"
+                              href="http://www.211.org/"
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              Call your local 2-1-1 hotline
+                            </a>
                           </li>
                         </ul>
-                      </div>
-                      <header
-                        className="usa-card__header  mt-3"
-                      >
-                        <h5
-                          className="usa-card__heading"
-                        >
-                          Details about what happened
-                        </h5>
-                      </header>
-                      <div
-                        className="usa-card__body"
-                      >
-                        <ul
-                          className="custom"
-                        >
-                          <li>
-                            <strong>
-                              Why:
-                            </strong>
-                             Why you were discriminated against
-                          </li>
-                          <li>
-                            <strong>
-                              Who:
-                            </strong>
-                             Who discriminated against you
-                          </li>
-                          <li>
-                            <strong>
-                              Where:
-                            </strong>
-                             Where the discrimination happened
-                          </li>
-                          <li>
-                            <strong>
-                              When:
-                            </strong>
-                             The date the discrimination happened
-                          </li>
-                          <li>
-                            <strong>
-                              What:
-                            </strong>
-                             A written summary of what happened
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div
-                      className="usa-card__container mt-3"
-                    >
-                      <header
-                        className="usa-card__header"
-                      >
-                        <h3
-                          className="usa-card__heading"
-                        >
-                          How long will it take?
-                        </h3>
-                      </header>
-                      <div
-                        className="usa-card__body"
-                      >
                         <p>
-                          It will take you 
+                          <a
+                            className="usa-link usa-link--external"
+                            href="https://endhomelessness.org/how-to-get-help-experiencing-homelssness/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            Read more about how to get help if you are homeless
+                          </a>
+                        </p>
+                        <p>
                           <strong>
-                            15-20 minutes
+                            For help with your Section 8 Housing Choice Voucher (HCV) or your public housing authority:
                           </strong>
-                           to fill out the form. The form won't time out until you close your Internet browser.
+                        </p>
+                        <ul>
+                          <li>
+                            <a
+                              className="usa-link usa-link--external"
+                              href="https://www.hud.gov/program_offices/public_indian_housing/about/css"
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              Call the PIH Customer Service Center
+                            </a>
+                             
+                            (1-800-955-2232)
+                          </li>
+                          <li>
+                            Hours: Monday-Friday; 9:00am-5:00pm Eastern Time
+                          </li>
+                        </ul>
+                        <p>
+                          <strong>
+                            For help with maintenance, management, or health and safety issues with your housing:
+                          </strong>
+                        </p>
+                        <ul>
+                          <li>
+                            <a
+                              className="usa-link usa-link--external"
+                              href="https://www.hud.gov/program_offices/housing/mfh/hc/complaint"
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              Call the Multifamily Housing Complaint Line
+                            </a>
+                             
+                            (1-800-685-8470)
+                          </li>
+                          <li>
+                            Hours: Monday-Friday; 9:00am-5:00pm Eastern Time
+                          </li>
+                        </ul>
+                        <p>
+                          <button
+                            className="usa-button usa-button--outline"
+                            onClick={[Function]}
+                          >
+                            Close expanded section
+                          </button>
                         </p>
                       </div>
                     </div>
-                    <div
-                      className="usa-card__footer mt-2"
+                    <h1
+                      className="mt-5"
                     >
-                      <button
-                        className="usa-button"
-                        onClick={[Function]}
-                      >
-                        Start my complaint
-                      </button>
-                    </div>
+                      <strong>
+                        What will I need to provide?
+                      </strong>
+                    </h1>
+                    <h5
+                      className="mt-3"
+                    >
+                      <strong>
+                        Contact information
+                      </strong>
+                    </h5>
+                    <ul>
+                      <li>
+                        Your name, address, phone number, and email address
+                      </li>
+                      <li>
+                        A second point of contact (optional)
+                      </li>
+                    </ul>
+                    <h5
+                      className="mt-3"
+                    >
+                      <strong>
+                        Details about what happened
+                      </strong>
+                    </h5>
+                    <ul>
+                      <li>
+                        <strong>
+                          Why:
+                        </strong>
+                         The reason someone discriminated against you
+                      </li>
+                      <li>
+                        <strong>
+                          Who:
+                        </strong>
+                         Who discriminated against you
+                      </li>
+                      <li>
+                        <strong>
+                          Where:
+                        </strong>
+                         Where the discrimination happened
+                      </li>
+                      <li>
+                        <strong>
+                          When:
+                        </strong>
+                         The date the discrimination happened
+                      </li>
+                      <li>
+                        <strong>
+                          What:
+                        </strong>
+                         A short summary of what happened
+                      </li>
+                    </ul>
+                    <h1
+                      className="mt-5"
+                    >
+                      <strong>
+                        How long will it take?
+                      </strong>
+                    </h1>
+                    <p>
+                      <strong>
+                        15-20 minutes.
+                      </strong>
+                       You won't lose your work unless you close your Internet browser.
+                    </p>
                   </div>
-                </li>
-              </ul>
+                  <div
+                    className="usa-card__footer mt-5"
+                  >
+                    <button
+                      className="usa-button"
+                      onClick={[Function]}
+                    >
+                      START MY COMPLAINT
+                    </button>
+                    <p
+                      className="mt-4"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -545,14 +715,15 @@ exports[`The App component renders as expected 1`] = `
               className="mobile-lg:grid-col-auto"
             >
               <img
-                alt=""
-                role="img"
-                src="faas-logo.png"
+                alt="footer logo"
+                height="20"
+                src="formsgov.png"
                 style={
                   Object {
                     "marginTop": "-20px",
                   }
                 }
+                width="150"
               />
             </div>
           </div>

@@ -67,15 +67,73 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 For deploying to S3 and CloudFront: [https://wolovim.medium.com/deploying-create-react-app-to-s3-or-cloudfront-48dae4ce0af](https://wolovim.medium.com/deploying-create-react-app-to-s3-or-cloudfront-48dae4ce0af)
 
-For deploying to EKS using docker:
 
-1. Navigate to the directory with the `Dockerfile` and run the following command: 
-1. `run docker build -t <image_name> .`
-1. Tag a local image with name <image_name> into the <repository_name> repository with <version_id>
-1. `docker tag <image_name> <repository_name>/<image_name>:<version_id>`
-1. Push the docker image to Amazon ECR: https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html
-1. Turn off the existing 
-1. kubectl scale deploy my-awesome-deployment --replicas=0
+
+
+#### *Deploy a Docker image to ECR*
+
+1. Navigate to the directory with the `Dockerfile` and build the Docker image from your Dockerfile:
+
+    `run docker build -t <image_name>:<tag> .`
+
+    e.g. `docker build -t faas-sandb/microservice:fheo .`
+    
+    where <image_name> follows this standard: "faas-sandb/microservice"
+    
+    and <tag> follows this standard: "fheo"
+
+1. Run docker images to verify that the image was created correctly.
+
+    `docker images --filter reference=<image_name>`
+
+    e.g. `docker images --filter reference=faas-sandb/microservice`
+
+1. The best way to find the commands to tag an image with the AWS name and deploy to ECR is to log in to the AWS front end, and choose "Amazon ECR -> Repositories" and click on the repository name (e.g. faas-sandb/microservice) at the top left is a button called "View push commands".  Click this.  It will bring up a list of commands.  Command #3 describes how to tag an image locally with the AWS name so you can push the image to the aws repository:
+
+    `docker tag <image_name>:<version> <aws_accountID>.dkr.ecr.<region>.amazonaws.com/<image_name>:<version>`
+
+    e.g. `docker tag faas-sandb/microservice:fheo <aws_accountID>.dkr.ecr.<region>.amazonaws.com/faas-sandb/microservice:fheo`
+
+1. Step #4 from "view push commands": Run the following command to push this image to your AWS repository:
+    `docker push <aws_accountID>.dkr.ecr.<region>.amazonaws.com/faas-sandb/microservice:fheo`
+
+If you have not already, follow the instructions to set up connection to AWS prior to executing the push command to AWS.  Also note, re-authentication is required every 12 hours.  Step #1 under the ECR push commands shows the command to re-authenticate.  A sample command is below:
+
+`aws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <aws_accountID>.dkr.ecr.<region>.amazonaws.com`
+
+
+#### *Deploy a ECR image to EKS*
+
+1. Test your configuration.
+
+    `kubectl get svc`
+
+1.  Undeploy (Turn off the existing replicas so a new deployment can occur)
+
+    `kubectl scale deploy fheoservice --replicas=0`
+
+1. Deploy
+
+    `kubectl scale deploy fheoservice --replicas=1`
+
+
+Other interesting kubectl commands
+
+    `kubectl get deployments`
+    `kubectl get pods`
+
+
+### Set up connection to AWS
+
+1. Download and install aws command line
+1. Run aws configure, providing your access key id, and secret access key
+1. Update your kubeconfig
+    `aws eks --region us-gov-west-1 update-kubeconfig --name faas-sandb-agency01-eks`
+
+1. Test your configuration.
+
+    `kubectl get svc`
+
 
 ### `yarn build` fails to minify
 

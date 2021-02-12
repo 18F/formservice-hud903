@@ -6,7 +6,6 @@ body {
   color: color('ink');
   overflow-x: hidden;
   display: block;
-  font-family: 'Source Sans Pro';
 }
 
 a {
@@ -129,6 +128,7 @@ Generic styles
 .preserve-space {
   white-space: pre-wrap;
 }
+
 
 /* padding helpers */
 
@@ -326,9 +326,10 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
   border-radius: 0.25rem;
 }
 .bodyfont {
-  font-size: 1.25rem;
+  font-size: 16.96px;
   line-height: 30px;
 }
+ 
 
 @media (min-width: 64em) {
   .card {

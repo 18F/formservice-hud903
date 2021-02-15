@@ -18,11 +18,11 @@ export const Home = () => {
       <div className="usa--card">
         <div className="usa-card__container">
           <header className="usa-card__header">
-            <h1 className="usa-card__heading">
+            <h2 className="usa-card__heading">
               <strong>Should I file a discrimination complaint?</strong>
-            </h1>
+            </h2>
           </header>
-          <div className="usa-card__body bodyfont skinnier mt-4">
+          <div className="usa-card__body bodyfont skinnier">
             <p>
               You should complete this form if you experienced{" "}
               <strong>housing discrimination</strong> because of your: 1) race;
@@ -333,9 +333,9 @@ export const Home = () => {
               </div>
             </div>
 
-            <h1 className="mt-5">
+            <h2 className="mt-4">
               <strong>What will I need to provide?</strong>
-            </h1>
+            </h2>
             <h5 className="mt-3">
               <strong>Contact information</strong>
             </h5>
@@ -366,9 +366,9 @@ export const Home = () => {
               </li>
             </ul>
 
-            <h1 className="mt-5">
+            <h2 className="mt-4">
               <strong>How long will it take?</strong>
-            </h1>
+            </h2>
             <p>
               <strong>15-20 minutes.</strong> You won&apos;t lose your work
               unless you close your Internet browser.

@@ -129,6 +129,7 @@ Generic styles
   white-space: pre-wrap;
 }
 
+
 /* padding helpers */
 
 @mixin pad($size, $side) {
@@ -324,6 +325,12 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
   border: none;
   border-radius: 0.25rem;
 }
+.bodyfont {
+  font-size: 16.96px;
+  line-height: 30px;
+}
+ 
+
 @media (min-width: 64em) {
   .card {
     width: 87.5%;

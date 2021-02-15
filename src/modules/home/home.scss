@@ -17,6 +17,10 @@ Main page styles
   border-radius: 0.25rem;
 }
 
+ul.custom {
+  list-style-type: disc;
+}
+
 @media (min-width: 64em) {
   .usa--card {
     padding-right: 50px;
@@ -39,14 +43,3 @@ Main page styles
   }
 }
 
-ul.custom {
-  list-style-type: disc;
-}
-
-.bodyfont {
-  font-size: 1.25rem;
-}
-
-.usa-prose {
-  font-size: 1.25rem;
-}

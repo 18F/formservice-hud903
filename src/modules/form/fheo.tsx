@@ -31,6 +31,12 @@ export const Fheo = () => {
                                 'previous': 'GO BACK',
                                 'submit': 'SUBMIT MY COMPLAINT'
                             }
+                        },
+                        buttonSettings: {
+                            showPrevious: true,
+                            showNext: true,
+                            showCancel: false,
+                            showSubmit: true
                         }
                     }}
                 />

@@ -22,8 +22,9 @@ export const Confirmation = () => {
                   Your complaint was successfully submitted
                 </h3>
                 <p className="usa-alert__text">
-                  We will review it as soon as possible, and contact you if we
-                  need more information.
+                  We sent you a confirmation email with a copy of your complaint if you provided an 
+                  email address. We'll review your complaint as soon as possible, and we'll contact 
+                  you if we need more information.
                 </p>
               </div>
             </div>

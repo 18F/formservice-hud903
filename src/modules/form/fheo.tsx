@@ -1,12 +1,23 @@
 import "./fheo.scss";
+import fheoForm from "../../main/resources/form_definition/HUD-903_1-FHEO_APIQuery.json";
+
 import { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form } from 'react-formio';
 import uswds from '@formio/uswds';
-import { Formio } from 'formiojs';
+import { Formio, Templates } from 'formiojs';
 import LoadingOverlay from 'react-loading-overlay';
-import BounceLoader from 'react-spinners/BounceLoader'
+import BounceLoader from 'react-spinners/BounceLoader';
+
 Formio.use(uswds);
+
+const wizardNavUpdatedTemplate = require("./wizardNavUpdatedTemplate.ejs");
+Templates.current = {
+    wizardNav:{
+        form: wizardNavUpdatedTemplate.default
+    }
+};
+
 export const Fheo = () => {
     const [loader, setLoader] = useState(true);
     const history = useHistory();
@@ -20,7 +31,8 @@ export const Fheo = () => {
             className={loader ? 'card' : ''}
         >
             <div className="card">
-                <Form
+                <Form 
+                    // form={fheoForm}
                     src="https://dev-portal.fs.gsa.gov/review/hud903"
                     onSubmit={handleConfirmationRoute}
                     onRender={handleRender}

@@ -67,6 +67,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 For deploying to S3 and CloudFront: [https://wolovim.medium.com/deploying-create-react-app-to-s3-or-cloudfront-48dae4ce0af](https://wolovim.medium.com/deploying-create-react-app-to-s3-or-cloudfront-48dae4ce0af)
 
+#### *Deploy to Cloud.gov*
+
+If not logged in, do the below (https://cloud.gov/docs/getting-started/setup/)
+cf login -a api.fr.cloud.gov  --sso
+Navigate to the website and copy the temp auth code
+
+Then do the below (https://cloud.gov/docs/deployment/deployment/)
+cf target -o <ORG> -s <SPACE>
+cf target -o hud-cloud-adoption -s dev
+cf push <APPNAME>
+cf push fheo
+Command takes a while.
+
 
 
 

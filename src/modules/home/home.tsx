@@ -51,7 +51,7 @@ export const Home = () => {
                 <p>
                   Treating a person or group of people unfairly (compared to
                   others) because of who they are or their characteristics. For
-                  example, mistreating someone because of their race.
+                  example, treating someone differently because of their race.
                 </p>
                 <p>
                   <strong>Definition: </strong>housing discrimination
@@ -77,24 +77,24 @@ export const Home = () => {
                 </p>
                 <ul>
                   <li>
-                    A landlord tells you an apartment is not available to rent,
+                    A landlord told you an apartment is not available to rent,
                     but you know it is available. You suspect the landlord
                     refused to show you the apartment because you are Black.
                   </li>
                   <li>
                     A homeowners association (or HOA) denies your request for a
-                    reserved parking spot that you need because of your physical
+                    reserved parking spot that you need because of your
                     disability. This is a denial of a reasonable accommodation
                     request.
                   </li>
                   <li>
                     A maintenance man who works for your apartment complex
-                    sexually harasses you in your apartment by making unwanted
+                    sexually harassed you in your apartment by making unwanted
                     sexual advances.
                   </li>
                   <li>
                     {" "}
-                    A real estate agent makes comments like “you wouldn’t want
+                    A real estate agent made comments like “you wouldn’t want
                     to live in that neighborhood” and only shows you homes in
                     heavily Hispanic areas because you are Hispanic.
                   </li>
@@ -119,7 +119,7 @@ export const Home = () => {
               <div id="a2" className="usa-accordion__content usa-prose" hidden={hidden}>
                 <p>
                   The federal Fair Housing Act bans discrimination in housing
-                  (and housing-related transactions) based on
+                  based on
                   <strong> seven</strong> characteristics. These are called
                   <strong> protected classes.</strong>
                 </p>
@@ -217,8 +217,8 @@ export const Home = () => {
                   </p>
                   <div className="tab">
                     <ul>
-                      <li>Familial status refers to having a child under 18 years old as
-                      a member of your household</li>
+                      <li>Familial status refers to having a child under 18 years old
+                      in your household</li>
                       <li>It also includes women who are
                       pregnant and families adopting children</li>
                     </ul>

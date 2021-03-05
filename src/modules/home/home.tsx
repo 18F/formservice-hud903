@@ -239,8 +239,9 @@ export const Home = () => {
                   id="a3header"
                 >
                   Who can help if I have a housing issue that does 
-                  NOT involve discrimination? (homelessness, Section 8 housing choice voucher issues, 
-                  or maintenance/health and safety issues)
+                  NOT involve discrimination? 
+                  <div className="normal-font-weight">(homelessness, Section 8 housing choice voucher issues, 
+                  or maintenance/health and safety issues)</div>
                 </button>
               </h2>
               <div id="a3" className="usa-accordion__content usa-prose" hidden={hidden}>

@@ -43,13 +43,13 @@ export const Confirmation = () => {
                   aria-controls="a1"
                   id="a1header"
                 >
-                  When will I hear back from HUD about my complaint?
+                  When will I hear back from HUD?
                 </button>
               </h2>
               <div id="a1" className="usa-accordion__content usa-prose" hidden={hidden}>
                 <p>
                   You should hear back from us within <strong>7-14 days</strong>
-                  , but it can take us as long as 30 days to process your
+                  , but it can take up to 30 days to process your
                   complaint.
                 </p>
                 <p>
@@ -73,19 +73,6 @@ export const Confirmation = () => {
                       </li>
                     </ul>
                     <ul>
-                      <li>
-                        Stay away from your home, if possible. Stay with a
-                        family member or friend, or{" "}
-                        <a
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="usa-link usa-link--external"
-                          href="http://www.211.org/"
-                        >
-                          call your local 211 hotline
-                        </a>{" "}
-                        for help finding temporary housing.
-                      </li>
                       <li>
                         If you are experiencing a life-threatening emergency,
                         call 911 or your local police department.
@@ -128,7 +115,7 @@ export const Confirmation = () => {
                   <strong>
                     1. Contact you to finalize the details of your complaint{" "}
                   </strong>
-                  (via phone or email); or
+                  (by phone and/or email); or
                 </p>
                 <p>
                   <strong>2. Refer your complaint</strong> to a state or local

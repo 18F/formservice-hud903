@@ -21,6 +21,10 @@ ul.custom {
   list-style-type: disc;
 }
 
+.normal-font-weight {
+  font-weight:400
+}
+
 @media (min-width: 64em) {
   .usa--card {
     padding-right: 50px;

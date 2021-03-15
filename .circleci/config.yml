@@ -12,9 +12,11 @@ commands:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-            # Perform a Partial Cache Restore (https://circleci.com/docs/2.0/caching/#restoring-cache)
-            - v1-dependencies-
+            # Find a cache corresponding to this specific package-lock.json checksum
+            # when this file is changed, this key will fail
+            - v1-npm-deps-{{ checksum "package-lock.json" }}
+            # Find the most recently generated cache used from any branch
+            - v1-npm-deps-
       - run:
           name: Setup NVM
           command: |
@@ -38,7 +40,7 @@ commands:
           paths:
             - node
             - node_modules
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
    
 jobs:
     build:

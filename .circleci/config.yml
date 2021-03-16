@@ -53,7 +53,7 @@ jobs:
             - getdependencies
             - run:
                 name: Run Tests
-                command: echo 'npm run test'
+                command: 'npm run test'
 
 workflows:
   version: 2

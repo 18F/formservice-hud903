@@ -1,6 +1,4 @@
 import "./fheo.scss";
-import fheoForm from "../../main/resources/form_definition/HUD-903_1-FHEO_APIQuery.json";
-
 import { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form } from 'react-formio';

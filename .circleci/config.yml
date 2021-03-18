@@ -1,19 +1,65 @@
 version: 2.1
-orbs:
-  react: thefrontside/react@0.2.0
+executors:
+  ci-executor:
+    machine:
+      image: circleci/classic:201808-01
+
+commands:
+  getdependencies:
+    description: "Download and cache all the necessary dependencies"
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            # Find the most recently generated cache used from any branch
+            - v1-npm-deps-
+      - run:
+          name: Setup NVM
+          command: |
+            echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
+            echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
+      - run:
+          name: Install Node 12.16.1
+          command: |
+            nvm install 12.16.1
+            nvm alias default 12.16.1
+      - run:
+          name: Print Node Version
+          command: 'node -v'
+      - run:
+          name: Print NPM Version
+          command: 'npm -v'
+      - run:
+          name: Install Node Modules
+          command: 'npm install'
+      - save_cache:
+          paths:
+            - node
+            - node_modules
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+   
+jobs:
+    build:
+        executor: ci-executor
+        steps:
+            - getdependencies
+            - run:
+                name: build
+                command: 'npm build'
+    run-test:
+        executor: ci-executor
+        steps:
+            - getdependencies
+            - run:
+                name: Run Tests
+                command: 'npm run test'
+
 workflows:
-  push:
+  version: 2
+  Build_Test_:
     jobs:
-      - react/installd
-      - react/eslint:
+      - build
+      - run-test:
           requires:
-            - react/install
-      - react/stylelint:
-          requires:
-            - react/install
-      - react/test:
-          requires:
-            - react/install
-      - react/coverage:
-          requires:
-            - react/install
+            - build

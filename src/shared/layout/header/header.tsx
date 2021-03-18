@@ -1,5 +1,5 @@
 import './header.scss';
-
+import React from 'react';
 import lock from "../../../content/images/lock.png";
 
 import usFlag from "../../../content/images/us_flag_small.png";
@@ -10,7 +10,7 @@ import iconHttps from "../../../content/images/icon-https.svg";
 
 import hudLogo from "../../../content/images/hud-logo.png";
 
-const Header = () => {
+const Header = () =>{
   return (
     <div style={{ background: '#ffffff' }}>
       <section className="usa-banner" aria-label="Official government website">
@@ -79,5 +79,4 @@ const Header = () => {
     </div>
   );
 };
-
 export default Header;

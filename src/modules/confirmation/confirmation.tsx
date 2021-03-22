@@ -1,16 +1,8 @@
 import "./confirmation.scss";
 import iconForwardArrow from "../../content/images/arrow_forward.svg";
-const hidden = true;
-const handleAccordionClick = (headerId, contentId )=>{
-  let accordionTopButton = document.getElementById(headerId);
-  let accordionContent = document.getElementById(contentId);
-  if(accordionTopButton && accordionContent){
-    accordionTopButton.setAttribute("aria-expanded", "false");
-    accordionContent.setAttribute("hidden", "true");
-  }
-}
 
 export const Confirmation = () => {
+  const hidden = true;
   return (
     <div id="home">
       <div className="usa--card">
@@ -93,11 +85,6 @@ export const Confirmation = () => {
                     .
                   </li>
                 </ol>
-                <p>
-                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a1header', 'a1')}>
-                    Close expanded section
-                  </button>
-                </p>
               </div>
               <h2 className="usa-accordion__heading mt-3">
                 <button
@@ -140,11 +127,6 @@ export const Confirmation = () => {
                     investigation process
                   </a>
                 </p>
-                <p>
-                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a2header', 'a2')}>
-                    Close expanded section
-                  </button>
-                </p>
               </div>
               <h2 className="usa-accordion__heading mt-3">
                 <button
@@ -181,11 +163,6 @@ export const Confirmation = () => {
                     authority to investigate it further.
                   </li>
                 </ol>
-                <p>
-                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a3header', 'a3')}>
-                    Close expanded section
-                  </button>
-                </p>
               </div>
               <h2 className="usa-accordion__heading mt-3">
                 <button
@@ -243,11 +220,6 @@ export const Confirmation = () => {
                     investigation process
                   </a>
                 </p>
-                <p>
-                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a4header', 'a4')}>
-                    Close expanded section
-                  </button>
-                </p>
               </div>
               <h2 className="usa-accordion__heading mt-3">
                 <button
@@ -276,11 +248,6 @@ export const Confirmation = () => {
                     Read more about our housing discrimination complaint and
                     investigation process
                   </a>
-                </p>
-                <p>
-                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a5header', 'a5')}>
-                    Close expanded section
-                  </button>
                 </p>
               </div>
             </div>

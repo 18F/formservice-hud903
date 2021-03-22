@@ -2,18 +2,11 @@ import "./home.scss";
 import React from 'react';
 import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
+
 export const Home = () => {
   const history = useHistory();
   const handleFheoRoute = useCallback(() => history.push("/fheo"), [history]);
   const hidden = true;
-  const handleAccordionClick = (headerId, contentId) => {
-    let accordionTopButton = document.getElementById(headerId);
-    let accordionContent = document.getElementById(contentId);
-      if(accordionTopButton && accordionContent){
-          accordionTopButton.setAttribute("aria-expanded", "false");
-          accordionContent.setAttribute("hidden", "true");
-      }
-  }
   return (
     <div id="home">
       <div className="usa--card">
@@ -101,11 +94,6 @@ export const Home = () => {
                   </li>
                 </ul>
 
-                <p>
-                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a1header', 'a1')}>
-                    Close expanded section
-                  </button>
-                </p>
               </div>
               <h2 className="usa-accordion__heading mt-3">
                 <button
@@ -225,12 +213,6 @@ export const Home = () => {
                     </ul>
                   </div>
                 </div>
-
-                <p>
-                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a2header', 'a2')}>
-                    Close expanded section
-                  </button>
-                </p>
               </div>
               <h2 className="usa-accordion__heading mt-3"> 
                 <button
@@ -242,7 +224,7 @@ export const Home = () => {
                   Who can help if I have a housing issue that does 
                   NOT involve discrimination? 
                   <div className="normal-font-weight">(homelessness, Section 8 housing choice voucher issues, 
-                  or maintenance/health and safety issues)</div>
+                  or maintenance issues)</div>
                 </button>
               </h2>
               <div id="a3" className="usa-accordion__content usa-prose" hidden={hidden}>
@@ -327,11 +309,6 @@ export const Home = () => {
                   </li>
                   <li>Hours: Monday-Friday; 9:00am-5:00pm Eastern Time</li>
                 </ul>
-                <p>
-                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a3header', 'a3')}>
-                    Close expanded section
-                  </button>
-                </p>
               </div>
             </div>
 

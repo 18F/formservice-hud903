@@ -24,6 +24,16 @@ __p += '\n  <li>\n    <button class="usa-button btn-wizard-nav-next" ref="' +
 ((__t = (ctx.t('next'))) == null ? '' : __t) +
 '</button>\n  </li>\n  ';
  } ;
+ __p += '\n  ';
+ if (ctx.buttons.submit) { ;
+__p += '\n  <li>\n    <button class="usa-button btn-wizard-nav-submit" ref="' +
+((__t = (ctx.wizardKey)) == null ? '' : __t) +
+'-submit" aria-label="' +
+((__t = (ctx.t('submit'))) == null ? '' : __t) +
+' button. Click to submit the form">' +
+((__t = (ctx.t('submit'))) == null ? '' : __t) +
+'</button>\n  </li>\n  ';
+ } ;
 __p += '\n  ';
  if (ctx.buttons.previous) { ;
 __p += '\n  <li>\n    <button class="usa-button usa-button--outline btn-wizard-nav-previous" ref="' +
@@ -34,16 +44,7 @@ __p += '\n  <li>\n    <button class="usa-button usa-button--outline btn-wizard-n
 ((__t = (ctx.t('previous'))) == null ? '' : __t) +
 '</button>\n  </li>\n  ';
  } ;
-__p += '\n  ';
- if (ctx.buttons.submit) { ;
-__p += '\n  <li>\n    <button class="usa-button btn-wizard-nav-submit" ref="' +
-((__t = (ctx.wizardKey)) == null ? '' : __t) +
-'-submit" aria-label="' +
-((__t = (ctx.t('submit'))) == null ? '' : __t) +
-' button. Click to submit the form">' +
-((__t = (ctx.t('submit'))) == null ? '' : __t) +
-'</button>\n  </li>\n  ';
- } ;
+
 __p += '\n</ul>\n';
 return __p
 }

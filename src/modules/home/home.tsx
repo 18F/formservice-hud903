@@ -101,11 +101,6 @@ export const Home = () => {
                   </li>
                 </ul>
 
-                <p>
-                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a1header', 'a1')}>
-                    Close expanded section
-                  </button>
-                </p>
               </div>
               <h2 className="usa-accordion__heading mt-3">
                 <button
@@ -225,12 +220,6 @@ export const Home = () => {
                     </ul>
                   </div>
                 </div>
-
-                <p>
-                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a2header', 'a2')}>
-                    Close expanded section
-                  </button>
-                </p>
               </div>
               <h2 className="usa-accordion__heading mt-3"> 
                 <button
@@ -242,7 +231,7 @@ export const Home = () => {
                   Who can help if I have a housing issue that does 
                   NOT involve discrimination? 
                   <div className="normal-font-weight">(homelessness, Section 8 housing choice voucher issues, 
-                  or maintenance/health and safety issues)</div>
+                  or maintenance issues)</div>
                 </button>
               </h2>
               <div id="a3" className="usa-accordion__content usa-prose" hidden={hidden}>
@@ -327,11 +316,6 @@ export const Home = () => {
                   </li>
                   <li>Hours: Monday-Friday; 9:00am-5:00pm Eastern Time</li>
                 </ul>
-                <p>
-                  <button className="usa-button usa-button--outline" onClick={() => handleAccordionClick('a3header', 'a3')}>
-                    Close expanded section
-                  </button>
-                </p>
               </div>
             </div>
 

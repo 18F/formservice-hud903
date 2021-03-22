@@ -1,16 +1,8 @@
 import "./confirmation.scss";
 import iconForwardArrow from "../../content/images/arrow_forward.svg";
-const hidden = true;
-const handleAccordionClick = (headerId, contentId )=>{
-  let accordionTopButton = document.getElementById(headerId);
-  let accordionContent = document.getElementById(contentId);
-  if(accordionTopButton && accordionContent){
-    accordionTopButton.setAttribute("aria-expanded", "false");
-    accordionContent.setAttribute("hidden", "true");
-  }
-}
 
 export const Confirmation = () => {
+  const hidden = true;
   return (
     <div id="home">
       <div className="usa--card">

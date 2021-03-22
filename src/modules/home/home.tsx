@@ -2,18 +2,11 @@ import "./home.scss";
 import React from 'react';
 import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
+
 export const Home = () => {
   const history = useHistory();
   const handleFheoRoute = useCallback(() => history.push("/fheo"), [history]);
   const hidden = true;
-  const handleAccordionClick = (headerId, contentId) => {
-    let accordionTopButton = document.getElementById(headerId);
-    let accordionContent = document.getElementById(contentId);
-      if(accordionTopButton && accordionContent){
-          accordionTopButton.setAttribute("aria-expanded", "false");
-          accordionContent.setAttribute("hidden", "true");
-      }
-  }
   return (
     <div id="home">
       <div className="usa--card">

@@ -283,14 +283,6 @@ exports[`The App component renders as expected 1`] = `
                             A real estate agent made comments like “you wouldn’t want to live in that neighborhood” and only shows you homes in heavily Hispanic areas because you are Hispanic.
                           </li>
                         </ul>
-                        <p>
-                          <button
-                            className="usa-button usa-button--outline"
-                            onClick={[Function]}
-                          >
-                            Close expanded section
-                          </button>
-                        </p>
                       </div>
                       <h2
                         className="usa-accordion__heading mt-3"
@@ -471,14 +463,6 @@ exports[`The App component renders as expected 1`] = `
                             </ul>
                           </div>
                         </div>
-                        <p>
-                          <button
-                            className="usa-button usa-button--outline"
-                            onClick={[Function]}
-                          >
-                            Close expanded section
-                          </button>
-                        </p>
                       </div>
                       <h2
                         className="usa-accordion__heading mt-3"
@@ -493,7 +477,7 @@ exports[`The App component renders as expected 1`] = `
                           <div
                             className="normal-font-weight"
                           >
-                            (homelessness, Section 8 housing choice voucher issues, or maintenance/health and safety issues)
+                            (homelessness, Section 8 housing choice voucher issues, or maintenance issues)
                           </div>
                         </button>
                       </h2>
@@ -586,14 +570,6 @@ exports[`The App component renders as expected 1`] = `
                             Hours: Monday-Friday; 9:00am-5:00pm Eastern Time
                           </li>
                         </ul>
-                        <p>
-                          <button
-                            className="usa-button usa-button--outline"
-                            onClick={[Function]}
-                          >
-                            Close expanded section
-                          </button>
-                        </p>
                       </div>
                     </div>
                     <h2

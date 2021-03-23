@@ -38,7 +38,47 @@ commands:
             - node
             - node_modules
           key: v1-npm-deps-{{ checksum "package-lock.json" }}
-   
+
+      - run:
+          name: Setup CF CLI
+          command: |
+            curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github'
+            sudo dpkg -i cf-cli_amd64.deb
+            cf -v
+            cf api https://api.run.pivotal.io  # alternately target your private Cloud Foundry deployment
+            cf auth "$CF_CLIENT_ID "$CF_CLIENT_SECRET
+            cf target -o "$CF_ORG" -s "dev"  
+      - run:
+          name: CF Deploy
+          command: |
+            # push artifacts , and set environment variables before running `cf start`.
+            # cf push --no-start fheo -f manifest.yml -n fheo
+            cf push --no-start fheo-dark -f manifest.yml  -n dark
+            # # Pass CircleCI variables to Cloud Foundry (optional)
+            # cf set-env <app-name-dark> circle_build_num ${CIRCLE_BUILD_NUM}
+            # cf set-env <app-name-dark> circle_commit ${CIRCLE_SHA1}
+            # cf set-env <app-name-dark> circle_workflow_guid ${CIRCLE_WORKFLOW_ID}
+            # cf set-env <app-name-dark> circle_user ${CIRCLE_PROJECT_USERNAME}
+            # cf set-env <app-name-dark> circle_repo ${CIRCLE_PROJECT_REPONAME}
+            # Start the application
+            cf start fheo
+            # Ensure dark route is exclusive to dark app
+            cf unmap-route fheo -n dark || echo "Dark Route Already exclusive"
+      - run:
+          name: Re-route live Domain to latest
+          command: |
+            # Send "real" url to new version
+            cf map-route fheo-dark -n www
+            # Stop sending traffic to previous version
+            cf unmap-route fheo  -n www
+            # stop previous version
+            cf stop fheo
+            # delete previous version
+            cf delete fheo -f
+            # Switch name of "dark" version to claim correct name
+            cf rename fheo-dark fheo
+
+
 jobs:
     build:
         executor: ci-executor
@@ -63,3 +103,25 @@ workflows:
       - run-test:
           requires:
             - build
+  build-deploy:
+      jobs:
+        - test
+        - dark-deploy:
+            requires:
+              - test
+            filters:
+              branches:
+                only: main
+        - hold:
+            type: approval
+            requires:
+              - dark-deploy
+            filters:
+              branches:
+                only: main
+        - live-deploy:
+            requires:
+              - hold # manual approval required via the CircleCI UI to run the live-deploy job
+            filters:
+              branches:
+                only: main

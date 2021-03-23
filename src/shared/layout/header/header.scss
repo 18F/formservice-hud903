@@ -12,6 +12,9 @@ $header-color-hover: darken($header-color, 20%);
   height: auto;
   overflow: auto;
 }
+.usa-list li, .usa-prose>ol li, .usa-prose>ul li{
+  max-width: 100%;
+}
 
 @media (min-width: 64em) {
   .flex-container {

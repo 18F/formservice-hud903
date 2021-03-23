@@ -10,7 +10,11 @@ import BounceLoader from 'react-spinners/BounceLoader';
 Formio.use(uswds);
 
 const wizardNavUpdatedTemplate = require("./wizardNavUpdatedTemplate.ejs");
+const wizardHeaderUpdatedTemplate = require("./wizardHeaderUpdatedTemplate.ejs");
 Templates.current = {
+    wizardHeader:{
+        form: wizardHeaderUpdatedTemplate.default
+    },
     wizardNav:{
         form: wizardNavUpdatedTemplate.default
     }

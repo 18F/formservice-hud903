@@ -47,8 +47,8 @@ jobs:
                 name: Copy deployment artifacts to workspace
                 command: |
                   cp -r /build/ /tmp/
-                  cp .circleci/setup-heroku.sh /tmp/setup-heroku.sh
                   cp ./manifest.yml /tmp/
+                  ls -la
     test:
         executor: ci-executor
         steps:

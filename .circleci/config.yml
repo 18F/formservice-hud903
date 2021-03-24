@@ -83,7 +83,7 @@ jobs:
                   # Copy deployable jar and CF Manifest to current dir
                   cp -r /tmp/build/ .
                   cp /tmp/manifest.yml .
-                  cf push --no-start fheo-dark -f manifest.yml -n dark
+                  cf push --no-start fheo-dark -f manifest.yml -n fheo-dark
                   # Pass CircleCI variables to Cloud Foundry (optional)
                   # cf set-env <app-name-dark> circle_build_num ${CIRCLE_BUILD_NUM}
                   # cf set-env <app-name-dark> circle_commit ${CIRCLE_SHA1}
@@ -92,14 +92,14 @@ jobs:
                   # cf set-env <app-name-dark> circle_repo ${CIRCLE_PROJECT_REPONAME}
                   # Start the application
                   cf start fheo-dark
-                   # Verify new version is working on dark URL.
-                  HTTPCODE=`curl -s -o /dev/null -w "%{http_code}" https://dark.app.cloud.gov/`
+                   # Verify new version is working on fheo-dark URL.
+                  HTTPCODE=`curl -s -o /dev/null -w "%{http_code}" https://fheo-dark.app.cloud.gov/`
                   if [ "$HTTPCODE" -ne 200 ];then
-                    echo "dark route note available, failing deploy"
+                    echo "fheo-dark route note available, failing deploy"
                     exit 1
                   fi
                   # Ensure dark route is exclusive to dark app
-                  cf unmap-route fheo app.cloud.gov -n dark || echo "Dark Route Already exclusive"
+                  cf unmap-route fheo app.cloud.gov -n fheo-dark || echo "Dark Route Already exclusive"
     live-deploy:
       executor: ci-executor
       steps:              

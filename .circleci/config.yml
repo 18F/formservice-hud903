@@ -10,33 +10,20 @@ commands:
       - checkout
       # Download and cache dependencies
       - restore_cache:
+          name: Restore Yarn Package Cache
           keys:
-            # Find the most recently generated cache used from any branch
-            - v1-npm-deps-
+            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
-          name: Setup NVM
-          command: |
-            echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
-            echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
+          name: Install Dependencies
+          command: yarn install --immutable
       - run:
-          name: Install Node 12.16.1
-          command: |
-            nvm install 12.16.1
-            nvm alias default 12.16.1
-      - run:
-          name: Print Node Version
-          command: 'node -v'
-      - run:
-          name: Print NPM Version
-          command: 'npm -v'
-      - run:
-          name: Install Node Modules
-          command: 'npm install'
+          name: Print yarn Version
+          command: 'yarn -v'
       - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
-            - node
-            - node_modules
-          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+            - ~/.cache/yarn
 
 jobs:
     build:
@@ -49,7 +36,7 @@ jobs:
             - run:
                 name: Copy deployment artifacts to workspace
                 command: |
-                  cp -r ./build/ /tmp/
+                  cp -r /build/ /tmp/
                   cp .circleci/setup-heroku.sh /tmp/setup-heroku.sh
                   cp ./manifest.yml /tmp/
     test:

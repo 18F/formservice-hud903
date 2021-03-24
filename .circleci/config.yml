@@ -68,7 +68,7 @@ jobs:
                 name: CF Deploy
                 command: |
                   # push artifacts , and set environment variables before running `cf start`.
-                  # cf push --no-start fheo-dark -n dark
+                  # cf push --no-start fheo-dark -n dark -d app.cloud.gov
                   cf push --no-start fheo-dark  -n dark
                   # Pass CircleCI variables to Cloud Foundry (optional)
                   # cf set-env <app-name-dark> circle_build_num ${CIRCLE_BUILD_NUM}
@@ -79,7 +79,7 @@ jobs:
                   # Start the application
                   cf start fheo
                   # Ensure dark route is exclusive to dark app
-                  cf unmap-route fheo -n dark || echo "Dark Route Already exclusive"
+                  cf unmap-route fheo app.cloud.gov -n dark || echo "Dark Route Already exclusive"
     live-deploy:
       executor: ci-executor
       steps:              
@@ -87,10 +87,10 @@ jobs:
               name: Re-route live Domain to latest
               command: |
                         # Send "real" url to new version
-                        cf map-route fheo-dark -n fheo
+                        cf map-route fheo-dark  app.cloud.gov -n fheo
                         # Stop sending traffic to previous version
-                        cf unmap-route fheo -n fheo
-                        # stop previous version
+                        cf unmap-route fheo -d app.cloud.gov  -n fheo
+                        # stop previous versions
                         cf stop fheo
                         # delete previous version
                         cf delete fheo -f

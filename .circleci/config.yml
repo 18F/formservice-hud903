@@ -65,6 +65,8 @@ jobs:
          - image: eddiewebb/queue-circleci-openjdk:8-jdk-browsers
         working_directory: ~/deploy
         steps:
+            - attach_workspace:
+                at: /tmp
             - run:
                 name: Setup CF CLI
                 command: |
@@ -78,7 +80,7 @@ jobs:
                   # push artifacts , and set environment variables before running `cf start`.
                   # cf push --no-start fheo-green -n dark -d app.cloud.gov
                   # Copy deployable jar and CF Manifest to current dir
-                  cp /tmp/build/ .
+                  cp -r /tmp/build/ .
                   cp /tmp/manifest.yml .
                   cf push --no-start fheo-dark -f manifest.yml -n dark
                   # Verify new version is working on dark URL.

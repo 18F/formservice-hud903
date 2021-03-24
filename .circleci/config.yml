@@ -34,8 +34,17 @@ jobs:
             - run:
                 name: build
                 command: 'yarn build'
+
+            - run:
+                name: Copy deployment artifacts to workspace
+                command: |
+                  cp -r /build/ /tmp/
+                  cp ./manifest.yml /tmp/
+                  ls -la
+
             - store_artifacts:
                 path: /tmp/manifest.yml
+                
             - store_artifacts:
                 path: /tmp/build/
 
@@ -43,12 +52,6 @@ jobs:
                 root: /tmp
                 paths:
                   - manifest.yml
-            - run:
-                name: Copy deployment artifacts to workspace
-                command: |
-                  cp -r /build/ /tmp/
-                  cp ./manifest.yml /tmp/
-                  ls -la
     test:
         executor: ci-executor
         steps:

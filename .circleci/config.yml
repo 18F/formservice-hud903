@@ -115,7 +115,7 @@ jobs:
                         cf rename app-name-dark app-name               
 workflows:
   version: 2
-  Build_and_Test:
+  Build_Test_Deploy:
     jobs:
       - build
       - test:
@@ -130,13 +130,13 @@ workflows:
       - hold:
           type: approval
           requires:
-          - dark-deploy
-        filters:
-          branches:
-            only: develop
+             - dark-deploy
+          filters:
+            branches:
+              only: develop
       - live-deploy:
           requires:
             - hold # manual approval required via the CircleCI UI to run the live-deploy job
           filters:
-            branches:
-            only: develop
+             branches:
+              only: develop

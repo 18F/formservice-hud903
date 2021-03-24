@@ -46,6 +46,12 @@ jobs:
             - run:
                 name: build
                 command: 'npm build'
+            - run:
+                name: Copy deployment artifacts to workspace
+                command: |
+                  cp -r /build/ /tmp/
+                  cp .circleci/setup-heroku.sh /tmp/setup-heroku.sh
+                  cp ./manifest.yml /tmp/
     test:
         executor: ci-executor
         steps:
@@ -69,6 +75,9 @@ jobs:
                 command: |
                   # push artifacts , and set environment variables before running `cf start`.
                   # cf push --no-start fheo-green -n dark -d app.cloud.gov
+                  # Copy deployable jar and CF Manifest to current dir
+                  cp /tmp/build/ .
+                  cp /tmp/manifest.yml .
                   cf push --no-start fheo-dark -f manifest.yml -n dark
                   # Verify new version is working on dark URL.
                   HTTPCODE=`curl -s -o /dev/null -w "%{http_code}" https://fheo-dark.app.cloud.gov/`

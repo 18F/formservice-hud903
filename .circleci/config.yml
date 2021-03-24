@@ -38,13 +38,14 @@ jobs:
             - run:
                 name: Copy deployment artifacts to workspace
                 command: |
-                  cp -r /build/ /tmp/
+                  ls -la
+                  cp -r ./build/ /tmp/
                   cp ./manifest.yml /tmp/
                   ls -la
 
             - store_artifacts:
                 path: /tmp/manifest.yml
-                
+
             - store_artifacts:
                 path: /tmp/build/
 

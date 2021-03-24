@@ -68,7 +68,7 @@ jobs:
                 name: CF Deploy
                 command: |
                   # push artifacts , and set environment variables before running `cf start`.
-                  # cf push --no-start fheo -f manifest.yml -n fheo
+                  # cf push --no-start fheo  -n fheo
                   cf push --no-start fheo-dark -f manifest.yml  -n dark
                   # Pass CircleCI variables to Cloud Foundry (optional)
                   # cf set-env <app-name-dark> circle_build_num ${CIRCLE_BUILD_NUM}

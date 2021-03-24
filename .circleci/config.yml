@@ -69,7 +69,13 @@ jobs:
                 command: |
                   # push artifacts , and set environment variables before running `cf start`.
                   # cf push --no-start fheo-green -n dark -d app.cloud.gov
-                  cf push --no-start fheo-dark -n dark
+                  cf push --no-start fheo-dark -f manifest.yml -n dark
+                  # Verify new version is working on dark URL.
+                  HTTPCODE=`curl -s -o /dev/null -w "%{http_code}" https://fheo-dark.app.cloud.gov/`
+                  if [ "$HTTPCODE" -ne 200 ];then
+                    echo "dark route note available, failing deploy"
+                    exit 1
+                  fi
                   # Pass CircleCI variables to Cloud Foundry (optional)
                   # cf set-env <app-name-dark> circle_build_num ${CIRCLE_BUILD_NUM}
                   # cf set-env <app-name-dark> circle_commit ${CIRCLE_SHA1}

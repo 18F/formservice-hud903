@@ -69,7 +69,7 @@ jobs:
                 command: |
                   # push artifacts , and set environment variables before running `cf start`.
                   # cf push --no-start fheo  -n fheo
-                  cf push --no-start fheo-dark -f manifest.yml  -n dark
+                  cf push --no-start fheo-dark  -n dark
                   # Pass CircleCI variables to Cloud Foundry (optional)
                   # cf set-env <app-name-dark> circle_build_num ${CIRCLE_BUILD_NUM}
                   # cf set-env <app-name-dark> circle_commit ${CIRCLE_SHA1}

@@ -121,25 +121,22 @@ workflows:
       - test:
           requires:
             - build
-  build-deploy:
-      jobs:
-        - test
-        - dark-deploy:
-            requires:
-              - test
-            filters:
-              branches:
-                only: develop
-        - hold:
-            type: approval
-            requires:
-              - dark-deploy
-            filters:
-              branches:
-                only: develop
-        - live-deploy:
-            requires:
-              - hold # manual approval required via the CircleCI UI to run the live-deploy job
-            filters:
-              branches:
-                only: develop
+      - dark-deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: develop
+      - hold:
+          type: approval
+          requires:
+          - dark-deploy
+        filters:
+          branches:
+            only: develop
+      - live-deploy:
+          requires:
+            - hold # manual approval required via the CircleCI UI to run the live-deploy job
+          filters:
+            branches:
+            only: develop

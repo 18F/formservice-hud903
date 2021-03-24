@@ -53,7 +53,7 @@ jobs:
                 root: /tmp
                 paths:
                   - manifest.yml
-                  - /duild/
+                  - build
     test:
         executor: ci-executor
         steps:

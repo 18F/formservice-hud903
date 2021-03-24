@@ -38,21 +38,6 @@ commands:
             - node_modules
           key: v1-npm-deps-{{ checksum "package-lock.json" }}
 
-     
-      - run:
-          name: Re-route live Domain to latest
-          command: |
-            # Send "real" url to new version
-            cf map-route fheo-dark -n www
-            # Stop sending traffic to previous version
-            cf unmap-route fheo  -n www
-            # stop previous version
-            cf stop fheo
-            # delete previous version
-            cf delete fheo -f
-            # Switch name of "dark" version to claim correct name
-            cf rename fheo-dark fheo
-
 jobs:
     build:
         executor: ci-executor
@@ -97,12 +82,12 @@ jobs:
                   cf start fheo
                   # Ensure dark route is exclusive to dark app
                   cf unmap-route fheo -n dark || echo "Dark Route Already exclusive"
-    live-deploy:     
-          executor: ci-executor
-          steps:          
-              - run:
-                  name: Re-route live Domain to latest
-                  command: |
+    live-deploy:
+      executor: ci-executor
+      steps:              
+          - run:
+              name: Re-route live Domain to latest
+              command: |
                         # Send "real" url to new version
                         cf map-route app-name-dark example.com -n www
                         # Stop sending traffic to previous version
@@ -112,7 +97,8 @@ jobs:
                         # delete previous version
                         cf delete app-name -f
                         # Switch name of "dark" version to claim correct name
-                        cf rename app-name-dark app-name               
+                        cf rename app-name-dark app-name              
+                  
 workflows:
   version: 2
   Build_Test_Deploy:

@@ -63,10 +63,7 @@ jobs:
                   curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github'
                   sudo dpkg -i cf-cli_amd64.deb
                   cf -v
-                  cf api https://api.fr.cloud.gov
-                  echo $CF_CLIENT_ID 
-                  echo $CF_CLIENT_SECRET
-                  echo $CF_ORG 
+                  cf api https://login.fr.cloud.gov
                   cf auth $CF_CLIENT_ID $CF_CLIENT_SECRET --client-credentials
                   cf target -o $CF_ORG -s "dev"  
 

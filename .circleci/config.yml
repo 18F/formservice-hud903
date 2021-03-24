@@ -34,7 +34,7 @@ jobs:
             - getdependencies
             - run:
                 name: build
-                command: 'npm build'
+                command: 'yarn build'
             - run:
                 name: Copy deployment artifacts to workspace
                 command: |

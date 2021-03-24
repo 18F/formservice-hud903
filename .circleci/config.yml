@@ -68,7 +68,7 @@ jobs:
                 name: CF Deploy
                 command: |
                   # push artifacts , and set environment variables before running `cf start`.
-                  # cf push --no-start fheo  -n fheo
+                  # cf push --no-start fheo-dark -n dark
                   cf push --no-start fheo-dark  -n dark
                   # Pass CircleCI variables to Cloud Foundry (optional)
                   # cf set-env <app-name-dark> circle_build_num ${CIRCLE_BUILD_NUM}
@@ -87,15 +87,15 @@ jobs:
               name: Re-route live Domain to latest
               command: |
                         # Send "real" url to new version
-                        cf map-route app-name-dark example.com -n www
+                        cf map-route fheo-dark -n fheo
                         # Stop sending traffic to previous version
-                        cf unmap-route app-name example.com -n www
+                        cf unmap-route fheo -n fheo
                         # stop previous version
-                        cf stop app-name
+                        cf stop fheo
                         # delete previous version
-                        cf delete app-name -f
+                        cf delete fheo -f
                         # Switch name of "dark" version to claim correct name
-                        cf rename app-name-dark app-name              
+                        cf rename fheo-dark fheo            
                   
 workflows:
   version: 2

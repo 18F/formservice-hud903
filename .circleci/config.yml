@@ -1,8 +1,10 @@
 version: 2.1
 executors:
   ci-executor:
-    machine:
-      image: circleci/node
+    docker:
+      - image: circleci/node:12.9.1-browsers
+  
+    working_directory: ~/repo
 commands:
   getdependencies:
     description: "Download and cache all the necessary dependencies"

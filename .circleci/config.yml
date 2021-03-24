@@ -118,7 +118,7 @@ jobs:
                             # Send "real" url to new version
                             cf map-route fheo-dark  app.cloud.gov -n fheo
                             # Stop sending traffic to previous version
-                            cf unmap-route fheo -d app.cloud.gov  -n fheo
+                            cf unmap-route fheo  app.cloud.gov  -n fheo
                             # stop previous versions
                             cf stop fheo
                             # delete previous version

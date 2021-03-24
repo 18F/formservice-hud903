@@ -38,31 +38,7 @@ commands:
             - node_modules
           key: v1-npm-deps-{{ checksum "package-lock.json" }}
 
-      - run:
-          name: Setup CF CLI
-          command: |
-            curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github'
-            sudo dpkg -i cf-cli_amd64.deb
-            cf -v
-            cf api https://api.fr.cloud.gov
-            cf auth "$CF_CLIENT_ID "$CF_CLIENT_SECRET"  --client-credentials
-            cf target -o "$CF_ORG" -s "dev"  
-      - run:
-          name: CF Deploy
-          command: |
-            # push artifacts , and set environment variables before running `cf start`.
-            # cf push --no-start fheo -f manifest.yml -n fheo
-            cf push --no-start fheo-dark -f manifest.yml  -n dark
-            # # Pass CircleCI variables to Cloud Foundry (optional)
-            # cf set-env <app-name-dark> circle_build_num ${CIRCLE_BUILD_NUM}
-            # cf set-env <app-name-dark> circle_commit ${CIRCLE_SHA1}
-            # cf set-env <app-name-dark> circle_workflow_guid ${CIRCLE_WORKFLOW_ID}
-            # cf set-env <app-name-dark> circle_user ${CIRCLE_PROJECT_USERNAME}
-            # cf set-env <app-name-dark> circle_repo ${CIRCLE_PROJECT_REPONAME}
-            # Start the application
-            cf start fheo
-            # Ensure dark route is exclusive to dark app
-            cf unmap-route fheo -n dark || echo "Dark Route Already exclusive"
+     
       - run:
           name: Re-route live Domain to latest
           command: |
@@ -76,7 +52,6 @@ commands:
             cf delete fheo -f
             # Switch name of "dark" version to claim correct name
             cf rename fheo-dark fheo
-
 
 jobs:
     build:
@@ -93,11 +68,54 @@ jobs:
             - run:
                 name: Run Tests
                 command: 'npm run test'
-    
+    dark-deploy:
+        executor: ci-executor
+        steps:
+            - run:
+                name: Setup CF CLI
+                command: |
+                  curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github'
+                  sudo dpkg -i cf-cli_amd64.deb
+                  cf -v
+                  cf api https://api.fr.cloud.gov
+                  cf auth ${CF_CLIENT_ID} ${CF_CLIENT_SECRET} --client-credentials
+                  cf target -o ${CF_ORG} -s "dev"  
 
+            - run:
+                name: CF Deploy
+                command: |
+                  # push artifacts , and set environment variables before running `cf start`.
+                  # cf push --no-start fheo -f manifest.yml -n fheo
+                  cf push --no-start fheo-dark -f manifest.yml  -n dark
+                  # Pass CircleCI variables to Cloud Foundry (optional)
+                  # cf set-env <app-name-dark> circle_build_num ${CIRCLE_BUILD_NUM}
+                  # cf set-env <app-name-dark> circle_commit ${CIRCLE_SHA1}
+                  # cf set-env <app-name-dark> circle_workflow_guid ${CIRCLE_WORKFLOW_ID}
+                  # cf set-env <app-name-dark> circle_user ${CIRCLE_PROJECT_USERNAME}
+                  # cf set-env <app-name-dark> circle_repo ${CIRCLE_PROJECT_REPONAME}
+                  # Start the application
+                  cf start fheo
+                  # Ensure dark route is exclusive to dark app
+                  cf unmap-route fheo -n dark || echo "Dark Route Already exclusive"
+    live-deploy:     
+          executor: ci-executor
+          steps:          
+              - run:
+                  name: Re-route live Domain to latest
+                  command: |
+                        # Send "real" url to new version
+                        cf map-route app-name-dark example.com -n www
+                        # Stop sending traffic to previous version
+                        cf unmap-route app-name example.com -n www
+                        # stop previous version
+                        cf stop app-name
+                        # delete previous version
+                        cf delete app-name -f
+                        # Switch name of "dark" version to claim correct name
+                        cf rename app-name-dark app-name               
 workflows:
   version: 2
-  Build_Test:
+  Build_and_Test:
     jobs:
       - build
       - test:

@@ -93,7 +93,7 @@ jobs:
                   # Start the application
                   cf start fheo-dark
                    # Verify new version is working on dark URL.
-                  HTTPCODE=`curl -s -o /dev/null -w "%{http_code}" https://fheo-dark.app.cloud.gov/`
+                  HTTPCODE=`curl -s -o /dev/null -w "%{http_code}" https://dark.app.cloud.gov/`
                   if [ "$HTTPCODE" -ne 200 ];then
                     echo "dark route note available, failing deploy"
                     exit 1

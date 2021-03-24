@@ -3,7 +3,6 @@ executors:
   ci-executor:
     docker:
       - image: circleci/node:12.9.1-browsers
-  
     working_directory: ~/repo
 commands:
   getdependencies:
@@ -35,6 +34,15 @@ jobs:
             - run:
                 name: build
                 command: 'yarn build'
+            - store_artifacts:
+                path: /tmp/manifest.yml
+            - store_artifacts:
+                path: /tmp/build/
+
+            - persist_to_workspace:
+                root: /tmp
+                paths:
+                  - manifest.yml
             - run:
                 name: Copy deployment artifacts to workspace
                 command: |
@@ -51,6 +59,7 @@ jobs:
     dark-deploy:
         docker:
          - image: eddiewebb/queue-circleci-openjdk:8-jdk-browsers
+        working_directory: ~/deploy
         steps:
             - run:
                 name: Setup CF CLI

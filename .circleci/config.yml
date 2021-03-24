@@ -138,5 +138,5 @@ workflows:
           requires:
             - hold # manual approval required via the CircleCI UI to run the live-deploy job
           filters:
-             branches:
+            branches:
               only: develop

@@ -1,9 +1,9 @@
 version: 2.1
 executors:
   ci-executor:
-    machine:
-      image: circleci/classic:201808-01
-
+    docker:
+      - image: circleci/node:12.9.1-browsers
+    working_directory: ~/repo
 commands:
   getdependencies:
     description: "Download and cache all the necessary dependencies"
@@ -11,34 +11,21 @@ commands:
       - checkout
       # Download and cache dependencies
       - restore_cache:
+          name: Restore Yarn Package Cache
           keys:
-            # Find the most recently generated cache used from any branch
-            - v1-npm-deps-
+            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
-          name: Setup NVM
-          command: |
-            echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
-            echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
+          name: Install Dependencies
+          command: yarn install --immutable
       - run:
-          name: Install Node 12.16.1
-          command: |
-            nvm install 12.16.1
-            nvm alias default 12.16.1
-      - run:
-          name: Print Node Version
-          command: 'node -v'
-      - run:
-          name: Print NPM Version
-          command: 'npm -v'
-      - run:
-          name: Install Node Modules
-          command: 'npm install'
+          name: Print yarn Version
+          command: 'yarn -v'
       - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
-            - node
-            - node_modules
-          key: v1-npm-deps-{{ checksum "package-lock.json" }}
-   
+            - ~/.cache/yarn
+
 jobs:
     build:
         executor: ci-executor
@@ -46,20 +33,123 @@ jobs:
             - getdependencies
             - run:
                 name: build
-                command: 'npm build'
-    run-test:
+                command: 'yarn build'
+
+            - run:
+                name: Copy deployment artifacts to workspace
+                command: |
+                  ls -la
+                  cp -r ./build/ /tmp/
+                  cp ./manifest.yml /tmp/
+                  ls -la
+
+            - store_artifacts:
+                path: /tmp/manifest.yml
+
+            - store_artifacts:
+                path: /tmp/build/
+
+            - persist_to_workspace:
+                root: /tmp
+                paths:
+                  - manifest.yml
+                  - build
+    test:
         executor: ci-executor
         steps:
             - getdependencies
             - run:
                 name: Run Tests
-                command: 'npm run test'
-
+                command: 'yarn test'
+    dark-deploy:
+        docker:
+         - image: eddiewebb/queue-circleci-openjdk:8-jdk-browsers
+        working_directory: ~/deploy
+        steps:
+            - attach_workspace:
+                at: /tmp
+            - run:
+                name: Setup CF CLI
+                command: |
+                  curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github'
+                  sudo dpkg -i cf-cli_amd64.deb
+                  cf -v
+                  cf login -a https://api.fr.cloud.gov -u $DEPLOYER_SERVICE_ACCOUNT_USERNAME -p $CF_PASSWORD -o $CF_ORG  -s "dev"
+            - run:
+                name: CF Deploy
+                command: |
+                  # push artifacts , and set environment variables before running `cf start`.
+                  # Copy deployable jar and CF Manifest to current dir
+                  cp -r /tmp/build/ .
+                  cp /tmp/manifest.yml .
+                  # cf push --no-start fheo-dark -n fheo-dark
+                  cf push --no-start fheo-dark -f manifest.yml -n fheo-dark
+                  # Pass CircleCI variables to Cloud Foundry (optional)
+                  # cf set-env <app-name-dark> circle_build_num ${CIRCLE_BUILD_NUM}
+                  # cf set-env <app-name-dark> circle_commit ${CIRCLE_SHA1}
+                  # cf set-env <app-name-dark> circle_workflow_guid ${CIRCLE_WORKFLOW_ID}
+                  # cf set-env <app-name-dark> circle_user ${CIRCLE_PROJECT_USERNAME}
+                  # cf set-env <app-name-dark> circle_repo ${CIRCLE_PROJECT_REPONAME}
+                  # Start the application
+                  cf start fheo-dark
+                   # Verify new version is working on fheo-dark URL.
+                  HTTPCODE=`curl -s -o /dev/null -w "%{http_code}" https://fheo-dark.app.cloud.gov/`
+                  if [ "$HTTPCODE" -ne 200 ];then
+                    echo "fheo-dark route note available, failing deploy"
+                    exit 1
+                  fi
+                  # Ensure dark route is exclusive to fheo-dark app
+                  cf unmap-route fheo app.cloud.gov -n fheo-dark || echo "Dark Route Already exclusive"
+    live-deploy:
+        docker:
+         - image: eddiewebb/queue-circleci-openjdk:8-jdk-browsers
+        working_directory: ~/deploy
+        steps:
+              - run:
+                      name: Setup CF CLI
+                      command: |
+                        curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github'
+                        sudo dpkg -i cf-cli_amd64.deb
+                        cf -v
+                        cf login -a https://api.fr.cloud.gov -u $DEPLOYER_SERVICE_ACCOUNT_USERNAME -p $CF_PASSWORD -o $CF_ORG  -s "dev"
+              - run:
+                  name: Re-route live Domain to latest
+                  command: |
+                            # Send "real" url to new version
+                            cf map-route fheo-dark app.cloud.gov -n fheo
+                            # Stop sending traffic to previous version
+                            cf unmap-route fheo app.cloud.gov -n fheo
+                            # stop previous versions
+                            cf stop fheo
+                            # delete previous version
+                            cf delete fheo -f
+                            # Switch name of "fheo-dark" version to claim correct name
+                            cf rename fheo-dark fheo            
+                    
 workflows:
   version: 2
-  Build_Test_:
+  Build_Test_Deploy:
     jobs:
       - build
-      - run-test:
+      - test:
           requires:
             - build
+      - dark-deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: develop
+      - hold:
+          type: approval
+          requires:
+             - dark-deploy
+          filters:
+            branches:
+              only: develop
+      - live-deploy:
+          requires:
+            - hold # manual approval required via the CircleCI UI to run the live-deploy job
+          filters:
+            branches:
+              only: develop

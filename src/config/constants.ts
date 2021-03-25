@@ -1,8 +1,7 @@
-const config = {
-  VERSION: process.env.VERSION
+import packageJson from '../../package.json';
+export const config = {
+  VERSION: packageJson.version
 };
-
-export default config;
 
 export const SERVER_API_URL = process.env.SERVER_API_URL;
 

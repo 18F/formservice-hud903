@@ -15,7 +15,7 @@ export const Footer = () => {
                 <img src={faasLogo} alt="footer logo" style={{ marginTop: '-20px' }} width="150" height="20" />
               </div>
               <div className="mobile-lg:grid-col-auto">
-              <p className="usa-text-small"> | Release 1.0</p>
+              <p className="usa-text-small"> | Release 1.1</p>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import './footer.scss';
 import React from 'react';
 import faasLogo from "../../../content/images/formsgov.png";
+import { config } from '../../../config/constants';
 export const Footer = () => {
   return (
     <footer className="usa-footer" >
@@ -15,7 +16,7 @@ export const Footer = () => {
                 <img src={faasLogo} alt="footer logo" style={{ marginTop: '-20px' }} width="150" height="20" />
               </div>
               <div className="mobile-lg:grid-col-auto">
-              <p className="usa-text-small"> | Release 1.1</p>
+              <p className="usa-text-small"> | Release {config.VERSION}</p>
               </div>
             </div>
           </div>

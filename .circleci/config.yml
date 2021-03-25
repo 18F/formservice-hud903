@@ -139,17 +139,17 @@ workflows:
             - test
           filters:
             branches:
-              only: ci/cd-pipeline
+              only: develop
       - hold:
           type: approval
           requires:
              - dark-deploy
           filters:
             branches:
-              only: ci/cd-pipeline
+              only: develop
       - live-deploy:
           requires:
             - hold # manual approval required via the CircleCI UI to run the live-deploy job
           filters:
             branches:
-              only: ci/cd-pipeline
+              only: develop

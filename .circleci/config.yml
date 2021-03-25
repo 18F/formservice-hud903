@@ -82,8 +82,8 @@ jobs:
                   # Copy deployable jar and CF Manifest to current dir
                   cp -r /tmp/build/ .
                   cp /tmp/manifest.yml .
-                  # cf push --no-start fheo-dark -n dark
-                  cf push --no-start fheo-dark -f manifest.yml -n dark
+                  # cf push --no-start fheo-dark -n fheo-dark
+                  cf push --no-start fheo-dark -f manifest.yml -n fheo-dark
                   # Pass CircleCI variables to Cloud Foundry (optional)
                   # cf set-env <app-name-dark> circle_build_num ${CIRCLE_BUILD_NUM}
                   # cf set-env <app-name-dark> circle_commit ${CIRCLE_SHA1}
@@ -98,8 +98,8 @@ jobs:
                     echo "fheo-dark route note available, failing deploy"
                     exit 1
                   fi
-                  # Ensure dark route is exclusive to dark app
-                  cf unmap-route fheo app.cloud.gov -n dark || echo "Dark Route Already exclusive"
+                  # Ensure dark route is exclusive to fheo-dark app
+                  cf unmap-route fheo app.cloud.gov -n fheo-dark || echo "Dark Route Already exclusive"
     live-deploy:
         docker:
          - image: eddiewebb/queue-circleci-openjdk:8-jdk-browsers
@@ -123,7 +123,7 @@ jobs:
                             cf stop fheo
                             # delete previous version
                             cf delete fheo -f
-                            # Switch name of "dark" version to claim correct name
+                            # Switch name of "fheo-dark" version to claim correct name
                             cf rename fheo-dark fheo            
                     
 workflows:

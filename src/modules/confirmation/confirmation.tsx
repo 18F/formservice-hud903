@@ -1,8 +1,23 @@
 import "./confirmation.scss";
+import React from 'react';
 import iconForwardArrow from "../../content/images/arrow_forward.svg";
 
 export const Confirmation = () => {
   const hidden = true;
+  const anchorSection = (href, value, obj) => {
+  const valueAndImg = <React.Fragment>{value}&nbsp;<img src={iconForwardArrow} alt="forward arrow" /></React.Fragment>
+  const anchorValue = obj === '' ? value : valueAndImg;    
+    return (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        className="usa-link usa-link--external"
+        href={href}
+      >
+        {anchorValue}
+      </a>
+    );
+  };
   return (
     <div id="home">
       <div className="usa--card">
@@ -14,9 +29,10 @@ export const Confirmation = () => {
                   Your complaint was successfully submitted
                 </h3>
                 <p className="usa-alert__text">
-                  We sent you a confirmation email with a copy of your complaint if you provided an 
-                  email address. We'll review your complaint as soon as possible, and we'll contact 
-                  you if we need more information.
+                  We sent you a confirmation email with a copy of your complaint
+                  if you provided an email address. We'll review your complaint
+                  as soon as possible, and we'll contact you if we need more
+                  information.
                 </p>
               </div>
             </div>
@@ -38,11 +54,14 @@ export const Confirmation = () => {
                   When will I hear back from HUD?
                 </button>
               </h2>
-              <div id="a1" className="usa-accordion__content usa-prose" hidden={hidden}>
+              <div
+                id="a1"
+                className="usa-accordion__content usa-prose"
+                hidden={hidden}
+              >
                 <p>
                   You should hear back from us within <strong>7-14 days</strong>
-                  , but it can take up to 30 days to process your
-                  complaint.
+                  , but it can take up to 30 days to process your complaint.
                 </p>
                 <p>
                   <strong>Emergencies</strong>
@@ -53,14 +72,8 @@ export const Confirmation = () => {
                     or another reason:
                     <ul>
                       <li>
-                        <a
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="usa-link usa-link--external"
-                          href="https://www.hud.gov/program_offices/fair_housing_equal_opp/contact_fheo#c4"
-                        >
-                          Call your nearest HUD fair housing office
-                        </a>{" "}
+                      {anchorSection('https://www.hud.gov/program_offices/fair_housing_equal_opp/contact_fheo#c4','Call your nearest HUD fair housing office','')}
+                       &nbsp;
                         to let us know that you are in an emergency.
                       </li>
                     </ul>
@@ -73,15 +86,8 @@ export const Confirmation = () => {
                   </li>
                   <li>
                     If you are at risk of losing your housing or becoming
-                    homeless,{" "}
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="usa-link usa-link--external"
-                      href="https://www.hud.gov/program_offices/fair_housing_equal_opp/contact_fheo#c4"
-                    >
-                      call your nearest HUD fair housing office
-                    </a>
+                    homeless,&nbsp;
+                    {anchorSection('https://www.hud.gov/program_offices/fair_housing_equal_opp/contact_fheo#c4','Call your nearest HUD fair housing office','')}
                     .
                   </li>
                 </ol>
@@ -96,11 +102,15 @@ export const Confirmation = () => {
                   What happens next?
                 </button>
               </h2>
-              <div id="a2" className="usa-accordion__content usa-prose" hidden={hidden}>
+              <div
+                id="a2"
+                className="usa-accordion__content usa-prose"
+                hidden={hidden}
+              >
                 <p>After we review your complaint, we will either:</p>
                 <p>
                   <strong>
-                    1. Contact you to finalize the details of your complaint{" "}
+                    1. Contact you to finalize the details of your complaint&nbsp;
                   </strong>
                   (by phone and/or email); or
                 </p>
@@ -112,20 +122,12 @@ export const Confirmation = () => {
                   <strong>
                     3. Let you know that we can’t investigate your complaint due
                     to lack of jurisdiction.
-                  </strong>{" "}
+                  </strong>&nbsp;
                   We’ll mail you a letter explaining why we can’t investigate
                   your complaint. We may also call or email you.
                 </p>
                 <p>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="usa-link usa-link--external"
-                    href="https://www.hud.gov/program_offices/fair_housing_equal_opp/complaint-process"
-                  >
-                    Read more about our housing discrimination complaint and
-                    investigation process
-                  </a>
+                {anchorSection('https://www.hud.gov/program_offices/fair_housing_equal_opp/complaint-process','Read more about our housing discrimination complaint and investigation process','')}
                 </p>
               </div>
               <h2 className="usa-accordion__heading mt-3">
@@ -138,16 +140,15 @@ export const Confirmation = () => {
                   How can I check the status of my complaint?
                 </button>
               </h2>
-              <div id="a3" className="usa-accordion__content usa-prose" hidden={hidden}>
+              <div
+                id="a3"
+                className="usa-accordion__content usa-prose"
+                hidden={hidden}
+              >
                 <p>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="usa-link usa-link--external"
-                    href="https://www.hud.gov/program_offices/fair_housing_equal_opp/contact_fheo#c4"
-                  >
-                    Call your nearest HUD fair housing office
-                  </a> to check the status of your complaint.
+                {anchorSection('https://www.hud.gov/program_offices/fair_housing_equal_opp/contact_fheo#c4','Call your nearest HUD fair housing office','')}
+                &nbsp;
+                  to check the status of your complaint.
                 </p>
                 <p>
                   We encourage you to wait to hear from us before calling. It
@@ -174,10 +175,14 @@ export const Confirmation = () => {
                   Why might HUD reject my complaint?
                 </button>
               </h2>
-              <div id="a4" className="usa-accordion__content usa-prose" hidden={hidden}>
+              <div
+                id="a4"
+                className="usa-accordion__content usa-prose"
+                hidden={hidden}
+              >
                 <p>
                   We only reject complaints that we do not have jurisdiction (or
-                  legal authority) to investigate. We refer to this as{" "}
+                  legal authority) to investigate. We refer to this as &nbsp;
                   <strong>lack of jurisdiction.</strong>
                 </p>
                 <p>
@@ -187,10 +192,10 @@ export const Confirmation = () => {
                   the federally protected classes.
                 </p>
                 <p>
-                  For us to investigate your complaint, you must claim (or allege) 
-                  that you experienced discrimination in housing
-                  because of your: 1) race, 2) color, 3) religion, 4) national
-                  origin, 5) sex, 6) disability, or 7) familial status.
+                  For us to investigate your complaint, you must claim (or
+                  allege) that you experienced discrimination in housing because
+                  of your: 1) race, 2) color, 3) religion, 4) national origin,
+                  5) sex, 6) disability, or 7) familial status.
                 </p>
                 <p>
                   <strong>What can I do if HUD rejects my complaint?</strong>
@@ -198,27 +203,13 @@ export const Confirmation = () => {
                 <p>
                   If we reject your complaint, and you believe that you
                   experienced discrimination, call the contact person listed on
-                  the letter you received in the mail. You can also{" "}
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="usa-link usa-link--external"
-                    href="https://www.hud.gov/program_offices/fair_housing_equal_opp/contact_fheo#c4"
-                  >
-                    call your nearest HUD fair housing office
-                  </a>{" "}
+                  the letter you received in the mail. You can also&nbsp;
+                  {anchorSection('https://www.hud.gov/program_offices/fair_housing_equal_opp/contact_fheo#c4','call your nearest HUD fair housing office','')}
+                  &nbsp;
                   to talk through your complaint on the phone.
                 </p>
                 <p>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="usa-link usa-link--external"
-                    href="https://www.hud.gov/program_offices/fair_housing_equal_opp/complaint-process"
-                  >
-                    Read more about our housing discrimination complaint and
-                    investigation process
-                  </a>
+                {anchorSection('https://www.hud.gov/program_offices/fair_housing_equal_opp/complaint-process','Read more about our housing discrimination complaint and investigation process','')}
                 </p>
               </div>
               <h2 className="usa-accordion__heading mt-3">
@@ -232,37 +223,25 @@ export const Confirmation = () => {
                   housing organization?
                 </button>
               </h2>
-              <div id="a5" className="usa-accordion__content usa-prose" hidden={hidden}>
+              <div
+                id="a5"
+                className="usa-accordion__content usa-prose"
+                hidden={hidden}
+              >
                 <p>
                   If your fair housing issue is only covered by a state or local
                   law, we may refer your complaint to a state or local fair
                   housing organization.
                 </p>
                 <p>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="usa-link usa-link--external"
-                    href="https://www.hud.gov/program_offices/fair_housing_equal_opp/complaint-process"
-                  >
-                    Read more about our housing discrimination complaint and
-                    investigation process
-                  </a>
+                {anchorSection('https://www.hud.gov/program_offices/fair_housing_equal_opp/complaint-process','Read more about our housing discrimination complaint and investigation process','')}
                 </p>
               </div>
             </div>
 
             <h5 className="mt-5">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.google.com"
-              >
-                Read more about our complaint and investigation process{" "}
-                <img src={iconForwardArrow} alt="forward arrow" />
-              </a>
+            {anchorSection('https://www.hud.gov/program_offices/fair_housing_equal_opp/complaint-process','Read more about our complaint and investigation process', 'img')}
             </h5>
-
             <p className="mt-4"></p>
           </div>
         </div>

@@ -579,13 +579,13 @@ exports[`The App component renders as expected 1`] = `
                         What will I need to provide?
                       </strong>
                     </h2>
-                    <h5
-                      className="mt-3"
+                    <h3
+                      className="h2-custom"
                     >
                       <strong>
                         Contact information
                       </strong>
-                    </h5>
+                    </h3>
                     <ul>
                       <li>
                         Your name, address, phone number, and email address
@@ -594,13 +594,13 @@ exports[`The App component renders as expected 1`] = `
                         A second point of contact (optional)
                       </li>
                     </ul>
-                    <h5
-                      className="mt-3"
+                    <h3
+                      className="h2-custom"
                     >
                       <strong>
                         Details about what happened
                       </strong>
-                    </h5>
+                    </h3>
                     <ul>
                       <li>
                         <strong>
@@ -714,7 +714,7 @@ exports[`The App component renders as expected 1`] = `
                 className="usa-text-small"
               >
                  | Release 
-                1.0.2
+                1.0.3
               </p>
             </div>
           </div>

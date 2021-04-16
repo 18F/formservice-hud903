@@ -315,17 +315,17 @@ export const Home = () => {
             <h2 className="mt-4">
               <strong>What will I need to provide?</strong>
             </h2>
-            <h5 className="mt-3">
+            <h3 className="h2-custom">
               <strong>Contact information</strong>
-            </h5>
+            </h3>
 
             <ul>
               <li>Your name, address, phone number, and email address</li>
               <li>A second point of contact (optional)</li>
             </ul>
-            <h5 className="mt-3">
+            <h3 className="h2-custom">
               <strong>Details about what happened</strong>
-            </h5>
+            </h3>
             <ul>
               <li>
                 <strong>Why:</strong> The reason someone discriminated against

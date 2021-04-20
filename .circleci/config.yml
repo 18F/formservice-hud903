@@ -173,7 +173,7 @@ workflows:
             - test
       - acceptance-tests:
           requires:
-            -dark-deploy
+            - dark-deploy
           filters:
             branches:
               only: develop
@@ -189,7 +189,7 @@ workflows:
             - hold # manual approval required via the CircleCI UI to run the live-deploy job
       - acceptance-test:
           requires:
-            -live-deploy
+            - live-deploy
           filters:
             branches:
               only: develop

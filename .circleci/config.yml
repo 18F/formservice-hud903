@@ -157,12 +157,12 @@ workflows:
   Build_Test_Deploy:
     jobs:
       - build
-#      - test:
-#          requires:
-#            - build
-#      - dark-deploy:
-#          requires:
-#            - test
+      - test:
+          requires:
+            - build
+      - dark-deploy:
+          requires:
+            - test
       - FHEO-acceptance-tests:
           requires:
             - build

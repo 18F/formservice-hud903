@@ -110,13 +110,8 @@ jobs:
 #                    BUILD_INFO=$(curl -X POST -H -d \
 #                    "{}" \
 #                    "https://circleci.com/api/v1/project/18F/formservice-testing/tree/develop?circle-token=$CIRCLE_TOKEN"")
-                             curl --request POST \
-                             --url https://circleci.com/api/v2/project/gh/18F/formservice-testing/api-preview-docs/pipeline \
-                             --header 'authorization: Basic REPLACE_BASIC_AUTH' \
-                             --header 'content-type: application/json' \
-                             --header 'x-attribution-actor-id: SOME_STRING_VALUE' \
-                             --header 'x-attribution-login: SOME_STRING_VALUE' \
-                             --data '{"branch":"feature/design-new-api","tag":"v3.1.4159","parameters":{"deploy_prod":true}}'
+                    curl --request POST \
+                    --url https://circleci.com/api/v2/project/gh/18F/formservice-testing/api-preview-docs/pipeline
     live-deploy:
         docker:
          - image: eddiewebb/queue-circleci-openjdk:8-jdk-browsers

@@ -107,8 +107,9 @@ jobs:
               - run:
                   name: trigger_test
                   command: |
-                    curl --request POST \
-                    --url https://circleci.com/api/v2/project/gh/18F/formservice-testing/api-preview-docs/pipeline
+                    BUILD_INFO=$(curl -X POST -H -d \
+                    "{}" \
+                    "https://circleci.com/api/v1/project/18F/formservice-testing/tree/develop?circle-token=$CIRCLE_TOKEN"")
     live-deploy:
         docker:
          - image: eddiewebb/queue-circleci-openjdk:8-jdk-browsers

@@ -166,9 +166,6 @@ workflows:
       - FHEO-acceptance-tests:
           requires:
             - build
-          filters:
-            branches:
-              only: develop
       - hold:
           type: approval
           requires:

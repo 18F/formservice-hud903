@@ -101,7 +101,7 @@ jobs:
                   # Ensure dark route is exclusive to fheo-dark app
                   cf unmap-route fheo app.cloud.gov -n fheo-dark || echo "Dark Route Already exclusive"
     FHEO-acceptance-tests: # Test automation code repo
-        docker:
+
         steps:
               - run:
                       command: |

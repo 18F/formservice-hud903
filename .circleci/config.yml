@@ -100,23 +100,11 @@ jobs:
                   fi
                   # Ensure dark route is exclusive to fheo-dark app
                   cf unmap-route fheo app.cloud.gov -n fheo-dark || echo "Dark Route Already exclusive"
-    acceptance-tests: # Test automation code repo
-      machine:
-        image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
-      steps:
-        - run:
-            name: "install NPM"
+    FHEO-acceptance-tests: # Test automation code repo
             command: |
-              $sudo npm install -g npm@latest > /dev/null 2>&1 || \
-              npm install -g npm@latest > /dev/null 2<&1
-              npm config -g delete ca
-              $SUDO npm install -g newman
-        - run:
-            name: "checkout and run tests"
-            command: |
-              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
-              newman run "formservice-testing/formservice/collections/FHEOFormService.postman_collection.json" -e "formservice-testing/formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice-testing/formservice/data/FHEO-Service-TestData.csv"
-
+              BUILD_INFO=$(curl -X POST -H -d \
+              "{}" \
+              "https://circleci.com/api/v1/project/18F/formservice-testing/tree/develop?circle-token=$CIRCLE_TOKEN"")
     live-deploy:
         docker:
          - image: eddiewebb/queue-circleci-openjdk:8-jdk-browsers
@@ -171,9 +159,9 @@ workflows:
       - dark-deploy:
           requires:
             - test
-      - acceptance-tests:
+      - FHEO-acceptance-tests:
           requires:
-            - dark-deploy
+            - test
           filters:
             branches:
               only: develop

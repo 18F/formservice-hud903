@@ -102,7 +102,7 @@ jobs:
                   cf unmap-route fheo app.cloud.gov -n fheo-dark || echo "Dark Route Already exclusive"
     FHEO-acceptance-tests: # # Test automation code repo
         machine:
-          image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
+          image: ubuntu-2004:202010-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
         steps:
               - run:
                   name: trigger_test

@@ -107,7 +107,7 @@ jobs:
               - run:
                   name: trigger_test
                   command: |
-                    curl -u ${CIRCLE_TOKEN}: -X POST --header "Content-Type: application/json" 'https://circleci.com/api/v1/project/gh/18F/formservice-testing/pipeline'
+                     curl -X POST https://circleci.com/api/v2/project/github/18F/formservice-testing/pipeline/ --header 'Content-Type:application/json' --header 'Accept:application/json' --header "Circle-Token:6b859bb6ba1092f44b9eb0efef95075877464fcc
     live-deploy:
         docker:
          - image: eddiewebb/queue-circleci-openjdk:8-jdk-browsers

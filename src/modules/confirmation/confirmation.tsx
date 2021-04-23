@@ -1,7 +1,6 @@
-import "./confirmation.scss";
+import './confirmation.scss';
 import React from 'react';
-import iconForwardArrow from "../../content/images/arrow_forward.svg";
-
+import iconForwardArrow from '../../content/images/arrow_forward.svg';
 export const Confirmation = () => {
   const hidden = true;
   const anchorSection = (href, value, obj) => {
@@ -37,12 +36,12 @@ export const Confirmation = () => {
               </div>
             </div>
           </header>
-
+​
           <div className="usa-card__body skinnier bodyfont mt-4">
             <h1 className="mt-5">
               <strong>Frequently Asked Questions (FAQs)</strong>
             </h1>
-
+​
             <div className="usa-accordion--bordered mt-4">
               <h2 className="usa-accordion__heading mt-3">
                 <button
@@ -238,10 +237,10 @@ export const Confirmation = () => {
                 </p>
               </div>
             </div>
-
-            <h5 className="mt-5">
+​
+            <h3 style={{ fontSize: '1.25rem' }} className="mt-3">
             {anchorSection('https://www.hud.gov/program_offices/fair_housing_equal_opp/complaint-process','Read more about our complaint and investigation process', 'img')}
-            </h5>
+            </h3>
             <p className="mt-4"></p>
           </div>
         </div>

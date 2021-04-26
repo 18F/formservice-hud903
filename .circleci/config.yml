@@ -157,7 +157,7 @@ jobs:
             name: "checkout and run tests"
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
-              newman run "formservice/collections/FHEOFormService.postman_collection.json" -e "formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice/data/FHEO-Service-TestData.csv"
+              newman run "formservice-testing/formservice/collections/FHEOFormService.postman_collection.json" -e "formservice-testing/formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice-testing/formservice/data/FHEO-Service-TestData.csv"
 
 
 workflows:

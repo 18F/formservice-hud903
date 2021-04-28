@@ -100,7 +100,7 @@ jobs:
                   fi
                   # Ensure dark route is exclusive to fheo-dark app
                   cf unmap-route fheo app.cloud.gov -n fheo-dark || echo "Dark Route Already exclusive"
-    acceptance-tests: # Test automation code repo
+    FHEO-acceptance-tests-Dark: # Test automation code repo
       machine:
         image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
       steps:
@@ -116,8 +116,86 @@ jobs:
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
               newman run "formservice-testing/formservice/collections/FHEOFormService.postman_collection.json" -e "formservice-testing/formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice-testing/formservice/data/FHEO-Service-TestData.csv"
+    FHEO-uitests-Set1-Dark:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            no_output_timeout: 120m
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodark'"
+        - store_artifacts:
+            path: /home/circleci/project/target/allure-reports
+    FHEO-uitests-Set2-Dark:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            no_output_timeout: 120m
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=false -Denv='fheodark'"
+        - store_artifacts:
+            path: /home/circleci/project/target/allure-reports
+    FHEO-uitests-Set3-Dark:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            no_output_timeout: 120m
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=false -Denv='fheodark'"
+        - store_artifacts:
+            path: /home/circleci/project/target/allure-reports
+    FHEO-uitests-Set4-Dark:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            no_output_timeout: 120m
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodark'"
+        - store_artifacts:
+            path: /home/circleci/project/target/allure-reports
+    FHEO-ErrSpecs-Dark:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=false -Denv='fheodark'"
+        - store_artifacts:
+            path: /home/circleci/project/target/allure-reports
+    FHEO-508Specs-Dark:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegression508Test' -DcheckAccessibility=true -Denv='fheodark'"
+        - store_artifacts:
+            path: /home/circleci/project/target/allure-reports
+        - store_artifacts:
+            path: /home/circleci/project/target/accessibilityReport
 
-    live-deploy:
+      live-deploy:
         docker:
          - image: eddiewebb/queue-circleci-openjdk:8-jdk-browsers
         working_directory: ~/deploy
@@ -142,7 +220,7 @@ jobs:
                             cf delete fheo -f
                             # Switch name of "fheo-dark" version to claim correct name
                             cf rename fheo-dark fheo
-    acceptance-test: # Test automation code repo
+    FHEO-acceptance-test-Dev: # Test automation code repo
       machine:
         image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
       steps:
@@ -158,6 +236,84 @@ jobs:
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
               newman run "formservice-testing/formservice/collections/FHEOFormService.postman_collection.json" -e "formservice-testing/formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice-testing/formservice/data/FHEO-Service-TestData.csv"
+    FHEO-uitest-Set1-Dev:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            no_output_timeout: 120m
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodev'"
+        - store_artifacts:
+            path: /home/circleci/project/target/allure-reports
+    FHEO-uitest-Set2-Dev:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            no_output_timeout: 120m
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=false -Denv='fheodev'"
+        - store_artifacts:
+            path: /home/circleci/project/target/allure-reports
+    FHEO-uitest-Set3-Dev:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            no_output_timeout: 120m
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=false -Denv='fheodev'"
+        - store_artifacts:
+            path: /home/circleci/project/target/allure-reports
+    FHEO-uitest-Set4-Dev:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            no_output_timeout: 120m
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodev'"
+        - store_artifacts:
+            path: /home/circleci/project/target/allure-reports
+    FHEO-ErrSpec-Dev:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=false -Denv='fheodev'"
+        - store_artifacts:
+            path: /home/circleci/project/target/allure-reports
+    FHEO-508Spec-Dev:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegression508Test' -DcheckAccessibility=true -Denv='fheodev'"
+        - store_artifacts:
+            path: /home/circleci/project/target/allure-reports
+        - store_artifacts:
+            path: /home/circleci/project/target/accessibilityReport
 
 
 workflows:
@@ -171,9 +327,45 @@ workflows:
       - dark-deploy:
           requires:
             - test
-      - acceptance-tests:
+      - FHEO-acceptance-tests-Dark:
           requires:
             - dark-deploy
+          filters:
+            branches:
+              only: develop
+      - FHEO-508Specs-Dark:
+          requires:
+            - dark-deploy
+          filters:
+            branches:
+              only: develop
+      - FHEO-ErrSpecs-Dark:
+          requires:
+            - FHEO-508Specs-Dark
+          filters:
+            branches:
+              only: develop
+      - FHEO-uitests-Set1-Dark:
+          requires:
+            - FHEO-508Specs-Dark
+          filters:
+            branches:
+              only: develop
+      - FHEO-uitests-Set2-Dark:
+          requires:
+            - FHEO-ErrSpecs-Dark
+          filters:
+            branches:
+              only: develop
+      - FHEO-uitests-Set3-Dark:
+          requires:
+            - FHEO-uitests-Set2-Dark
+          filters:
+            branches:
+              only: develop
+      - FHEO-uitests-Set4-Dark:
+          requires:
+            - FHEO-uitests-Set1-Dark
           filters:
             branches:
               only: develop
@@ -187,9 +379,45 @@ workflows:
       - live-deploy:
           requires:
             - hold # manual approval required via the CircleCI UI to run the live-deploy job
-      - acceptance-test:
+      - FHEO-acceptance-test-Dev:
           requires:
             - live-deploy
+          filters:
+            branches:
+              only: develop
+      - FHEO-ErrSpec-Dev:
+          requires:
+            - live-deploy
+          filters:
+            branches:
+              only: develop
+      - FHEO-508Spec-Dev:
+          requires:
+            - FHEO-ErrSpec-Dev
+          filters:
+            branches:
+              only: develop
+      - FHEO-uitest-Set1-Dev:
+          requires:
+            - FHEO-ErrSpec-Dev
+          filters:
+            branches:
+              only: develop
+      - FHEO-uitest-Set2-Dev:
+          requires:
+            - FHEO-ErrSpec-Dev
+          filters:
+            branches:
+              only: develop
+      - FHEO-uitest-Set3-Dev:
+          requires:
+            - FHEO-508Spec-Dev
+          filters:
+            branches:
+              only: develop
+      - FHEO-uitest-Set4-Dev:
+          requires:
+            - FHEO-uitest-Set1-Dev
           filters:
             branches:
               only: develop

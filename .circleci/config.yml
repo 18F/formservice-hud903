@@ -129,7 +129,7 @@ jobs:
               cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodark'"
         - store_artifacts:
-            path: /home/circleci/project/target/allure-reports
+            path: target/allure-reports
     FHEO-uitests-Set2-Dark:
       machine:
         image: ubuntu-2004:202101-01
@@ -143,7 +143,7 @@ jobs:
               cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=false -Denv='fheodark'"
         - store_artifacts:
-            path: /home/circleci/project/target/allure-reports
+            path: target/allure-reports
     FHEO-uitests-Set3-Dark:
       machine:
         image: ubuntu-2004:202101-01
@@ -157,7 +157,7 @@ jobs:
               cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=false -Denv='fheodark'"
         - store_artifacts:
-            path: /home/circleci/project/target/allure-reports
+            path: target/allure-reports
     FHEO-uitests-Set4-Dark:
       machine:
         image: ubuntu-2004:202101-01
@@ -171,7 +171,7 @@ jobs:
               cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodark'"
         - store_artifacts:
-            path: /home/circleci/project/target/allure-reports
+            path: target/allure-reports
     FHEO-ErrSpecs-Dark:
       machine:
         image: ubuntu-2004:202101-01
@@ -184,7 +184,7 @@ jobs:
               cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=false -Denv='fheodark'"
         - store_artifacts:
-            path: /home/circleci/project/target/allure-reports
+            path: target/allure-reports
     FHEO-508Specs-Dark:
       machine:
         image: ubuntu-2004:202101-01
@@ -197,9 +197,9 @@ jobs:
               cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegression508Test' -DcheckAccessibility=true -Denv='fheodark'"
         - store_artifacts:
-            path: /home/circleci/project/target/allure-reports
+            path: target/allure-reports
         - store_artifacts:
-            path: /home/circleci/project/target/accessibilityReport
+            path: target/accessibilityReport
 
     live-deploy:
         docker:
@@ -255,7 +255,7 @@ jobs:
               cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodev'"
         - store_artifacts:
-            path: /home/circleci/project/target/allure-reports
+            path: target/allure-reports
     FHEO-uitest-Set2-Dev:
       machine:
         image: ubuntu-2004:202101-01
@@ -269,7 +269,7 @@ jobs:
               cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=false -Denv='fheodev'"
         - store_artifacts:
-            path: /home/circleci/project/target/allure-reports
+            path: target/allure-reports
     FHEO-uitest-Set3-Dev:
       machine:
         image: ubuntu-2004:202101-01
@@ -283,7 +283,7 @@ jobs:
               cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=false -Denv='fheodev'"
         - store_artifacts:
-            path: /home/circleci/project/target/allure-reports
+            path: target/allure-reports
     FHEO-uitest-Set4-Dev:
       machine:
         image: ubuntu-2004:202101-01
@@ -297,7 +297,7 @@ jobs:
               cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodev'"
         - store_artifacts:
-            path: /home/circleci/project/target/allure-reports
+            path: target/allure-reports
     FHEO-ErrSpec-Dev:
       machine:
         image: ubuntu-2004:202101-01
@@ -310,7 +310,7 @@ jobs:
               cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=false -Denv='fheodev'"
         - store_artifacts:
-            path: /home/circleci/project/target/allure-reports
+            path: target/allure-reports
     FHEO-508Spec-Dev:
       machine:
         image: ubuntu-2004:202101-01
@@ -323,9 +323,9 @@ jobs:
               cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegression508Test' -DcheckAccessibility=true -Denv='fheodev'"
         - store_artifacts:
-            path: /home/circleci/project/target/allure-reports
+            path: target/allure-reports
         - store_artifacts:
-            path: /home/circleci/project/target/accessibilityReport
+            path: target/accessibilityReport
 
 
 workflows:
@@ -345,7 +345,7 @@ workflows:
           filters:
             branches:
               only: develop
-      - FHEO-508Specs-Dark:
+      - FHEO-uitests-Set1-Dark:
           requires:
             - dark-deploy
           filters:
@@ -353,13 +353,13 @@ workflows:
               only: develop
       - FHEO-ErrSpecs-Dark:
           requires:
-            - FHEO-508Specs-Dark
+            - dark-deploy
           filters:
             branches:
               only: develop
-      - FHEO-uitests-Set1-Dark:
+      - FHEO-508Specs-Dark:
           requires:
-            - FHEO-508Specs-Dark
+            - dark-deploy
           filters:
             branches:
               only: develop
@@ -371,7 +371,7 @@ workflows:
               only: develop
       - FHEO-uitests-Set3-Dark:
           requires:
-            - FHEO-uitests-Set2-Dark
+            - FHEO-ErrSpecs-Dark
           filters:
             branches:
               only: develop

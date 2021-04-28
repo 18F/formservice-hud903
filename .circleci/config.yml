@@ -126,6 +126,7 @@ jobs:
             no_output_timeout: 120m
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodark'"
         - store_artifacts:
             path: /home/circleci/project/target/allure-reports
@@ -139,6 +140,7 @@ jobs:
             no_output_timeout: 120m
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=false -Denv='fheodark'"
         - store_artifacts:
             path: /home/circleci/project/target/allure-reports
@@ -152,6 +154,7 @@ jobs:
             no_output_timeout: 120m
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=false -Denv='fheodark'"
         - store_artifacts:
             path: /home/circleci/project/target/allure-reports
@@ -165,6 +168,7 @@ jobs:
             no_output_timeout: 120m
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodark'"
         - store_artifacts:
             path: /home/circleci/project/target/allure-reports
@@ -177,6 +181,7 @@ jobs:
             name: "Clone and install maven for running command"
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=false -Denv='fheodark'"
         - store_artifacts:
             path: /home/circleci/project/target/allure-reports
@@ -189,6 +194,7 @@ jobs:
             name: "Clone and install maven for running command"
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegression508Test' -DcheckAccessibility=true -Denv='fheodark'"
         - store_artifacts:
             path: /home/circleci/project/target/allure-reports
@@ -246,6 +252,7 @@ jobs:
             no_output_timeout: 120m
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodev'"
         - store_artifacts:
             path: /home/circleci/project/target/allure-reports
@@ -259,6 +266,7 @@ jobs:
             no_output_timeout: 120m
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=false -Denv='fheodev'"
         - store_artifacts:
             path: /home/circleci/project/target/allure-reports
@@ -272,6 +280,7 @@ jobs:
             no_output_timeout: 120m
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=false -Denv='fheodev'"
         - store_artifacts:
             path: /home/circleci/project/target/allure-reports
@@ -285,6 +294,7 @@ jobs:
             no_output_timeout: 120m
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodev'"
         - store_artifacts:
             path: /home/circleci/project/target/allure-reports
@@ -297,6 +307,7 @@ jobs:
             name: "Clone and install maven for running command"
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=false -Denv='fheodev'"
         - store_artifacts:
             path: /home/circleci/project/target/allure-reports
@@ -309,6 +320,7 @@ jobs:
             name: "Clone and install maven for running command"
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
               mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegression508Test' -DcheckAccessibility=true -Denv='fheodev'"
         - store_artifacts:
             path: /home/circleci/project/target/allure-reports

@@ -116,6 +116,15 @@ jobs:
             command: |
               git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
               newman run "formservice-testing/formservice/collections/FHEOFormService.postman_collection.json" -e "formservice-testing/formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice-testing/formservice/data/FHEO-Service-TestData.csv"
+## Command for initiating other work flow
+## FHEO-acceptance-tests-Dark: # # Test automation code repo
+##        machine:
+##          image: ubuntu-2004:202010-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
+##        steps:
+##              - run:
+##                  name: trigger_test
+##                  command: |
+##                    curl -u 6b859bb6ba1092f44b9eb0efef95075877464fcc: -d build_parameters[CIRCLE_JOB]=FHEO-acceptance-tests-Dark https://circleci.com/api/v1.1/project/gh/18F/formservice-testing/tree/develop
     FHEO-uitests-Set1-Dark:
       machine:
         image: ubuntu-2004:202101-01
@@ -200,6 +209,33 @@ jobs:
             path: formservice-testing/target/allure-reports
         - store_artifacts:
             path: formservice-testing/target/accessibilityReport
+    FHEO-DeviceAndroidphone-Dark:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodark' -Ddevice='Samsung Galaxy S20'"
+        - store_artifacts:
+            path: formservice-testing/target/allure-reports
+    FHEO-DeviceAndroidtablet-Dark:
+        machine:
+          image: ubuntu-2004:202101-01
+        steps:
+          - checkout
+          - run:
+              name: "Clone and install maven for running command"
+              command: |
+                git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+                cd formservice-testing
+                mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodark' -Ddevice='Samsung Galaxy Tab S7'"
+          - store_artifacts:
+              path: formservice-testing/target/allure-reports
+
 
     live-deploy:
         docker:
@@ -326,6 +362,32 @@ jobs:
             path: formservice-testing/target/allure-reports
         - store_artifacts:
             path: formservice-testing/target/accessibilityReport
+    FHEO-DeviceAndroidphone-Dev:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodev' -Ddevice='Samsung Galaxy S20'"
+        - store_artifacts:
+            path: formservice-testing/target/allure-reports
+    FHEO-DeviceAndroidtablet-Dev:
+      machine:
+        image: ubuntu-2004:202101-01
+      steps:
+        - checkout
+        - run:
+            name: "Clone and install maven for running command"
+            command: |
+              git clone https://{$CIRCLE_TOKEN}@github.com/18F/formservice-testing.git
+              cd formservice-testing
+              mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodev' -Ddevice='Samsung Galaxy Tab S7'"
+        - store_artifacts:
+            path: formservice-testing/target/allure-reports
 
 
 workflows:
@@ -381,6 +443,18 @@ workflows:
           filters:
             branches:
               only: develop
+      - FHEO-DeviceAndroidphone-Dark:
+          requires:
+            - FHEO-uitest-Set1-Dev
+          filters:
+            branches:
+              only: develop
+      - FHEO-DeviceAndroidtablet-Dark:
+          requires:
+            - FHEO-uitest-Set1-Dev
+          filters:
+            branches:
+              only: develop
       - hold:
           type: approval
           requires:
@@ -428,6 +502,18 @@ workflows:
             branches:
               only: develop
       - FHEO-uitest-Set4-Dev:
+          requires:
+            - FHEO-uitest-Set1-Dev
+          filters:
+            branches:
+              only: develop
+      - FHEO-DeviceAndroidphone-Dev:
+          requires:
+            - FHEO-uitest-Set1-Dev
+          filters:
+            branches:
+              only: develop
+      - FHEO-DeviceAndroidtablet-Dev:
           requires:
             - FHEO-uitest-Set1-Dev
           filters:

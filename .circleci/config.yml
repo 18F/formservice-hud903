@@ -445,13 +445,13 @@ workflows:
               only: develop
       - FHEO-DeviceAndroidphone-Dark:
           requires:
-            - FHEO-uitest-Set1-Dev
+            - FHEO-uitest-Set1-Dark
           filters:
             branches:
               only: develop
       - FHEO-DeviceAndroidtablet-Dark:
           requires:
-            - FHEO-uitest-Set1-Dev
+            - FHEO-uitest-Set1-Dark
           filters:
             branches:
               only: develop

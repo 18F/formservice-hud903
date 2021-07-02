@@ -149,6 +149,7 @@ Other interesting kubectl commands
 
     `kubectl get svc`
 
+All done!!!
 
 ### `yarn build` fails to minify
 
